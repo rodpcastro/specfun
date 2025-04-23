@@ -1,20 +1,17 @@
 module constants
+! Mathematical constants.
 !
-! Purpose:
-!   Purpose.
+! Author
+! ------
+! Rodrigo Castro (GitHub: rodpcastro)
 !
-! Author:
-!   Rodrigo Castro (GitHub: rodpcastro)
+! History
+! -------
+! 23-04-2025 - Rodrigo Castro - Original code
 !
-! Creation Date:
-!   23-04-2025
-!
-! Modification History:
-!   <dd-mm-yyyy> - <Name> - <Changes>
-!
-! References:
-!   Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
-!
+! References
+! ----------
+! N. J. A. Sloane (1964). The Online Encyclopedia of Integer Sequences. https://oeis.org/
 
   use iso_fortran_env, only: real64
 

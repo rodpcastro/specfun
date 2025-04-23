@@ -1,20 +1,13 @@
 program specfuncs
+! Simple test of special functions.
 !
-! Purpose:
-!   Purpose.
+! Author
+! ------
+! Rodrigo Castro (GitHub: rodpcastro)
 !
-! Author:
-!   Rodrigo Castro (GitHub: rodpcastro)
-!
-! Creation Date:
-!   23-04-2025
-!
-! Modification History:
-!   <dd-mm-yyyy> - <Name> - <Changes>
-!
-! References:
-!   Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
-!
+! History
+! -------
+! 23-04-2025 - Rodrigo Castro - Original code
 
   use iso_fortran_env, only: real64
   use expint, only: e1  

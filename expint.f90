@@ -1,19 +1,18 @@
 module expint
-! Purpose:
-!   Purpose.
+! Exponential integrals Ei and E1.
 !
-! Author:
-!   Rodrigo Castro (GitHub: rodpcastro)
+! Author
+! ------
+! Rodrigo Castro (GitHub: rodpcastro)
 !
-! Creation Date:
-!   22-04-2025
+! History
+! -------
+! 23-04-2025 - Rodrigo Castro - Original code
 !
-! Modification History:
-!   <dd-mm-yyyy> - <Name> - <Changes>
-!
-! References:
-!   Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
-!
+! References
+! ----------
+! Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
+
   use iso_fortran_env, only: int8, real64
   use constants, only: pi, gm
 
