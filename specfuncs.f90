@@ -23,6 +23,8 @@ program specfuncs
   
   real(real64) :: x
 
+  x = 1.5d0
+
   print *, 'E1(', x, ') = ', e1(x)
 
 end program specfuncs
