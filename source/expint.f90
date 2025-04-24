@@ -37,7 +37,7 @@ contains
 
     real(real64), intent(in) :: x
     real(real64) :: r
-    integer(int16) :: n, m
+    integer(int16) :: n
 
     if (x == 0.0d0) then
       ei = -1.0d+300
