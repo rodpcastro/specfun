@@ -44,7 +44,7 @@ contains
     else if (x <= 40.0d0) then
       ei = x
       r = x
-      do n = 2, 100
+      do n = 2, 101
         r = r * x * (n-1) / n**2
         ei = ei + r
         if (abs(r) <= 1.0d-15*abs(ei)) exit
@@ -84,7 +84,7 @@ contains
     else if (x <= 1.0d0) then
       e1x = x
       r = x
-      do n = 2, 25
+      do n = 2, 26
         r = r * x * (1-n) / n**2
         e1x = e1x + r
         if (abs(r) <= 1.0d-15*abs(e1x)) exit
@@ -127,7 +127,7 @@ contains
     else if (a <= 10.0d0 .or. x < 0.0d0 .and. a > 20.0d0) then
       e1z = z
       r = z
-      do n = 2, 150
+      do n = 2, 151
         r = r * z * (1-n) / n**2
         e1z = e1z + r
         if (abs(r) <= 1.0d-15*abs(e1z)) exit
