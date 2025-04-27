@@ -18,8 +18,12 @@ module expint
 
   implicit none
   private
-  public :: ei, e1x, e1z
+  public :: ei, e1, e1x, e1z
   
+  interface e1
+    module procedure e1x, e1z
+  end interface e1
+
 contains
 
   pure real(real64) function ei(x)
@@ -27,12 +31,12 @@ contains
     !
     ! Parameters
     ! ----------
-    ! x : real(8)
+    ! x : real(real64)
     !   Real number ≥ 0.
     !    
     ! Returns
     ! -------
-    ! ei : real(8) 
+    ! ei : real(real64) 
     !   Exponential integral of x.
 
     real(real64), intent(in) :: x
@@ -67,12 +71,12 @@ contains
     !
     ! Parameters
     ! ----------
-    ! x : real(8)
+    ! x : real(real64)
     !   Real number ≥ 0.
     !    
     ! Returns
     ! -------
-    ! e1x : real(8) 
+    ! e1x : real(real64) 
     !   Exponential integral of x.
 
     real(real64), intent(in) :: x
@@ -106,12 +110,12 @@ contains
     !
     ! Parameters
     ! ----------
-    ! z : complex(8)
+    ! z : complex(real64)
     !   Complex number.
     !    
     ! Returns
     ! -------
-    ! e1z : complex(8) 
+    ! e1z : complex(real64) 
     !   Exponential integral of z.
 
     complex(real64), intent(in) :: z
