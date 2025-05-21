@@ -1,4 +1,4 @@
-program specfuncs
+program special_functions_test
 ! Simple test of special functions.
 !
 ! Author
@@ -9,8 +9,8 @@ program specfuncs
 ! -------
 ! 23-04-2025 - Rodrigo Castro - Original code
 
-  use iso_fortran_env, only: real64
-  use expint, only: ei, e1, e1x, e1z
+  use fortran_kinds, only: real64
+  use exponential_integrals, only: ei, e1, e1x, e1z
 
   implicit none
   
@@ -40,4 +40,4 @@ program specfuncs
   print *, 'e1_t1 - ', e1_t1
   print *, 'e1_t2 - ', e1_t2
 
-end program specfuncs
+end program special_functions_test

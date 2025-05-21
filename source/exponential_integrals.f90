@@ -1,4 +1,4 @@
-module expint
+module exponential_integrals
 ! Exponential integrals Ei and E1.
 !
 ! Author
@@ -13,7 +13,7 @@ module expint
 ! ----------
 ! Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
 
-  use iso_fortran_env, only: int16, real64
+  use fortran_kinds, only: int16, real64
   use constants, only: pi, gm
 
   implicit none
@@ -95,7 +95,7 @@ contains
       end do
       e1x = e1x - gm - log(x)
     else
-      m = 20 + int(80.0/x)
+      m = int(20.0 + 80.0/x, int16)
       r = 0.0d0
       do n = m, 1, -1
         r = n / (1.0d0 + n / (x + r))
@@ -148,4 +148,4 @@ contains
 
   end function e1z
 
-end module expint
+end module exponential_integrals

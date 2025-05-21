@@ -13,7 +13,7 @@ module constants
 ! ----------
 ! N. J. A. Sloane (1964). The Online Encyclopedia of Integer Sequences. https://oeis.org/
 
-  use iso_fortran_env, only: real64
+  use fortran_kinds, only: real64
 
   implicit none
   private
