@@ -1,4 +1,4 @@
-program special_functions_test
+program test_specfun
 ! Simple test of special functions.
 !
 ! Author
@@ -40,4 +40,4 @@ program special_functions_test
   print *, 'e1_t1 - ', e1_t1
   print *, 'e1_t2 - ', e1_t2
 
-end program special_functions_test
+end program test_specfun
