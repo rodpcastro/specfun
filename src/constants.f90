@@ -11,9 +11,10 @@ module constants
 !
 ! References
 ! ----------
-! N. J. A. Sloane (1964). The Online Encyclopedia of Integer Sequences. https://oeis.org/
+! [1] N. J. A. Sloane. 1964. The Online Encyclopedia of Integer Sequences.
+!     https://oeis.org/.
 
-  use, intrinsic :: iso_fortran_env, only: real64
+  use, intrinsic :: iso_fortran_env, only: real32, real64
 
   implicit none
   private

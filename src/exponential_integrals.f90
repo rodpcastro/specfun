@@ -11,7 +11,8 @@ module exponential_integrals
 !
 ! References
 ! ----------
-! Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
+! [1] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions.
+!     Wiley, New York, NY.
 
   use, intrinsic :: iso_fortran_env, only: int16, real64
   use constants, only: pi, gm
