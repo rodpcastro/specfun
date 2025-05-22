@@ -13,7 +13,7 @@ module exponential_integrals
 ! ----------
 ! Shanjie Zhang, Jianming Jin (1996). Computation of Special Functions.
 
-  use fortran_kinds, only: int16, real64
+  use, intrinsic :: iso_fortran_env, only: int16, real64
   use constants, only: pi, gm
 
   implicit none
