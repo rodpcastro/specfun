@@ -18,20 +18,20 @@ module header
 
   implicit none
   private
-  public :: phi, get_and_display
+  public :: phi!, get_and_display
 
   real(real64), parameter :: phi = 1.618033988749894d0  ! Golden ratio
 
-contains
-
-  pure subroutine get_and_display()
-    ! Example procedure.
-
-    character(100) :: user_input
-
-    print *, 'Enter some text: '
-    read *, user_input
-    print *, 'You entered: ', trim(user_input)
-  end subroutine get_and_display
+! contains
+!
+!   pure subroutine get_and_display()
+!     ! Example procedure.
+!
+!     character(100) :: user_input
+!
+!     print *, 'Enter some text: '
+!     read *, user_input
+!     print *, 'You entered: ', trim(user_input)
+!   end subroutine get_and_display
 
 end module header
