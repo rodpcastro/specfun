@@ -19,7 +19,7 @@ module exponential_integrals
 
   implicit none
   private
-  public :: ei, e1, e1x, e1z
+  public :: ei, e1
   
   interface e1
     module procedure e1x, e1z
