@@ -129,7 +129,7 @@ contains
 
     if (a == 0.0d0) then
       e1z = (1.0d+300, 0.0d0)
-    else if (a <= 10.0d0 .or. x < 0.0d0 .and. a > 20.0d0) then
+    else if (a <= 10.0d0 .or. x < 0.0d0 .and. a < 20.0d0) then
       e1z = z
       r = z
       do n = 2, 151
