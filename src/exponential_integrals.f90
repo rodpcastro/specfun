@@ -19,6 +19,7 @@ module exponential_integrals
                                            ieee_positive_inf, &
                                            ieee_negative_inf
   use constants, only: pi, gm
+  use numerror, only: isclose, eps64
 
   implicit none
   private
@@ -36,7 +37,7 @@ contains
     ! Parameters
     ! ----------
     ! x : real(real64)
-    !   Real number ≥ 0.
+    !   Real number.
     !    
     ! Returns
     ! -------
@@ -49,13 +50,15 @@ contains
 
     if (x == 0.0d0) then
       ei = ieee_value(1.0_real64, ieee_negative_inf)
+    else if (x < 0.0d0) then
+      ei = -e1x(-x)
     else if (x <= 40.0d0) then
       ei = x
       r = x
       do n = 2, 101
         r = r * x * (n-1) / n**2
         ei = ei + r
-        if (abs(r) <= 1.0d-15*abs(ei)) exit
+        if (abs(r) <= eps64*abs(ei)) exit
       end do
       ei = ei + gm + log(x)
     else
@@ -81,7 +84,7 @@ contains
     ! Returns
     ! -------
     ! e1x : real(real64) 
-    !   Exponential integral of x.
+    !   Exponential integral E1(x).
 
     real(real64), intent(in) :: x
     real(real64) :: r
@@ -95,7 +98,7 @@ contains
       do n = 2, 26
         r = r * x * (1-n) / n**2
         e1x = e1x + r
-        if (abs(r) <= 1.0d-15*abs(e1x)) exit
+        if (abs(r) <= eps64*abs(e1x)) exit
       end do
       e1x = e1x - gm - log(x)
     else
@@ -120,25 +123,24 @@ contains
     ! Returns
     ! -------
     ! e1z : complex(real64) 
-    !   Exponential integral of z.
+    !   Exponential integral E1(z).
 
     complex(real64), intent(in) :: z
-    real(real64) :: x, a
+    real(real64) :: zabs
     complex(real64) :: r
     integer(int16) :: n
 
-    x = real(z)
-    a = abs(z)
+    zabs = abs(z)
 
-    if (a == 0.0d0) then
+    if (zabs == 0.0d0) then
       e1z = cmplx(ieee_value(1.0_real64, ieee_positive_inf), 0.0_real64)
-    else if (a <= 10.0d0 .or. x < 0.0d0 .and. a < 20.0d0) then
+    else if (zabs <= 10.0d0 .or. z%re < 0.0d0 .and. zabs < 20.0d0) then
       e1z = z
       r = z
       do n = 2, 151
         r = r * z * (1-n) / n**2
         e1z = e1z + r
-        if (abs(r) <= 1.0d-15*abs(e1z)) exit
+        if (abs(r) <= eps64*abs(e1z)) exit
       end do
       e1z = e1z - gm - log(z)
     else
@@ -147,7 +149,7 @@ contains
         r = n / (1.0d0 + n / (z + r))
       end do
       e1z = exp(-z) / (z + r)
-      if (x <= 0.0d0 .and. imag(z) == 0.0d0) e1z = e1z - pi*(0.0d0, 1.0d0)
+      if (z%re <= 0.0d0 .and. z%im == 0.0d0) e1z = e1z + cmplx(0.0d0, -pi)
     end if
 
   end function e1z

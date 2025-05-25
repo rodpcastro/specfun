@@ -55,6 +55,10 @@ program specfun
   print '(a, sp, g0)', 'ei(0.0)  = ', ei(0.0d0)
   print '(a, sp, g0)', 'e1x(0.0) = ', e1(0.0d0)
   print '(a, sp, g0, f4.1)', 'e1z(0.0) = ', e1((0.0d0, 0.0d0))
-
+  print fmt, '-ei(1.0)  = ', -ei(1.0d0)
+  print '(a, 2(es22.15, 1x))', 'e1z(-1.0) = ', e1((-1.0d0, 0.0d0))
+  print fmt, 'ei(-1.5)   = ', ei(-1.5d0)
+  print fmt, '-e1x(1.5)  = ', -e1(1.5d0)
 
 end program specfun
+
