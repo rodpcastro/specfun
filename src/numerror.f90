@@ -19,6 +19,8 @@ module numerror
   real(real64), parameter :: eps64 = epsilon(1.0d0)  ! eps64 = 2.2204460492503131E-016
 
   interface isclose
+    ! Evalutes the closeness between two real or complex numbers.
+
     module procedure isclose_real, isclose_complex
   end interface isclose
 
