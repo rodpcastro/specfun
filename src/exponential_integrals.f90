@@ -15,6 +15,9 @@ module exponential_integrals
 !     Wiley, New York, NY.
 
   use, intrinsic :: iso_fortran_env, only: int16, real64
+  use, intrinsic :: ieee_arithmetic, only: ieee_value, &
+                                           ieee_positive_inf, &
+                                           ieee_negative_inf
   use constants, only: pi, gm
 
   implicit none
@@ -45,7 +48,7 @@ contains
     integer(int16) :: n
 
     if (x == 0.0d0) then
-      ei = -1.0d+300
+      ei = ieee_value(1.0_real64, ieee_negative_inf)
     else if (x <= 40.0d0) then
       ei = x
       r = x
@@ -85,7 +88,7 @@ contains
     integer(int16) :: n, m
 
     if (x == 0.0d0) then
-      e1x = 1.0d+300
+      e1x = ieee_value(1.0_real64, ieee_positive_inf)
     else if (x <= 1.0d0) then
       e1x = x
       r = x
@@ -128,7 +131,7 @@ contains
     a = abs(z)
 
     if (a == 0.0d0) then
-      e1z = (1.0d+300, 0.0d0)
+      e1z = cmplx(ieee_value(1.0_real64, ieee_positive_inf), 0.0_real64)
     else if (a <= 10.0d0 .or. x < 0.0d0 .and. a < 20.0d0) then
       e1z = z
       r = z
