@@ -1,5 +1,5 @@
-program specfun
-! Simple test of special functions.
+program example_exponential_integral
+! Simple test exponential integrals Ei and E1.
 !
 ! Author
 ! ------
@@ -7,20 +7,16 @@ program specfun
 !
 ! History
 ! -------
-! 25-04-2025 - Rodrigo Castro - Original code
+! 26-04-2025 - Rodrigo Castro - Original code
 
   use, intrinsic :: iso_fortran_env, only: real64
-  use, intrinsic :: ieee_arithmetic, only: ieee_value, ieee_positive_inf, ieee_negative_inf
   use exponential_integral, only: ei, e1
-  use numerror, only: ismall
 
   implicit none
   
   character(:), allocatable :: fmt
   real(real64) :: ei_t1, ei_t2, e1x_t1, e1x_t2, &
                   e1z_t1, e1z_t2, e1z_t3, ei_root
-  real(real64) :: h1 = 2*huge(1.0_real64)
-  real(real64) :: h2 = -2*huge(1.0_real64)
 
   ei_root = 0.3725074107813666d0
 
@@ -35,15 +31,6 @@ program specfun
   e1z_t3 = abs((-4.2432089533906728d-6, -7.7188970166104144d-6) - e1((9.1d0, 7.7d0))) / &
            abs((-4.2432089533906728d-6, -7.7188970166104144d-6))
 
-  fmt = '(sp, g0)' 
-  print '(a)', '------------'
-  print '(a)', '+- Infinity'
-  print '(a)', '------------'
-  print fmt, ieee_value(1.0d0, ieee_positive_inf)
-  print fmt, ieee_value(1.0d0, ieee_negative_inf)
-  print fmt, h1
-  print fmt, h2
- 
   fmt = '(a, es22.15)'
   print '(a)', '---------------------'
   print '(a)', 'Exponential Integrals'
@@ -63,8 +50,5 @@ program specfun
   print fmt, 'ei(-1.5)   = ', ei(-1.5d0)
   print fmt, '-e1x(1.5)  = ', -e1(1.5d0)
   print fmt, 'ei(root) = ', ei(ei_root)
-  print *, ismall(1.0d-15)
-  print *, ismall(1.0d-16)
 
-end program specfun
-
+end program example_exponential_integral
