@@ -1,4 +1,4 @@
-module exponential_integrals
+module exponential_integral
 ! Exponential integrals Ei and E1.
 !
 ! Author
@@ -19,7 +19,7 @@ module exponential_integrals
                                            ieee_positive_inf, &
                                            ieee_negative_inf
   use constants, only: pi, gm
-  use numerror, only: isclose, eps64
+  use numerror, only: ismall
 
   implicit none
   private
@@ -58,7 +58,7 @@ contains
       do n = 2, 101
         r = r * x * (n-1) / n**2
         ei = ei + r
-        if (abs(r) <= eps64*abs(ei)) exit
+        if (ismall(r, ei)) exit
       end do
       ei = ei + gm + log(x)
     else
@@ -98,7 +98,7 @@ contains
       do n = 2, 26
         r = r * x * (1-n) / n**2
         e1x = e1x + r
-        if (abs(r) <= eps64*abs(e1x)) exit
+        if (ismall(r, e1x)) exit
       end do
       e1x = e1x - gm - log(x)
     else
@@ -140,7 +140,7 @@ contains
       do n = 2, 151
         r = r * z * (1-n) / n**2
         e1z = e1z + r
-        if (abs(r) <= eps64*abs(e1z)) exit
+        if (ismall(abs(r), abs(e1z))) exit
       end do
       e1z = e1z - gm - log(z)
     else
@@ -154,4 +154,4 @@ contains
 
   end function e1z
 
-end module exponential_integrals
+end module exponential_integral

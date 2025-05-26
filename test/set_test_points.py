@@ -9,14 +9,14 @@ def set_test_points_exponential_integral_ei():
     xv = np.logspace(-16, 2, 1000, dtype=np.float64)
     yv = np.array([mpmath.ei(x) for x in xv])
     zv = np.column_stack((xv, yv))
-    filepath = test_points_dir / 'exponential_integrals_ei.csv'
+    filepath = test_points_dir / 'exponential_integral_ei.csv'
     np.savetxt(filepath, zv, fmt='% .15e')
 
 def set_test_points_exponential_integral_e1x():
     xv = np.logspace(-16, 2, 1000, dtype=np.float64)
     yv = np.array([mpmath.e1(x) for x in xv])
     zv = np.column_stack((xv, yv))
-    filepath = test_points_dir / 'exponential_integrals_e1x.csv'
+    filepath = test_points_dir / 'exponential_integral_e1x.csv'
     np.savetxt(filepath, zv, fmt='% .15e')
 
 def set_test_points_exponential_integral_e1z():
@@ -41,7 +41,7 @@ def set_test_points_exponential_integral_e1z():
 
     wv = np.array([mpmath.e1(z) for z in zv], dtype=np.complex128)
     uv = np.column_stack((zv, wv))
-    filepath = test_points_dir / 'exponential_integrals_e1z.csv'
+    filepath = test_points_dir / 'exponential_integral_e1z.csv'
     np.savetxt(filepath, uv, fmt='% .15e %+.15e   % .15e %+.15e')
 
 if __name__ == '__main__':
