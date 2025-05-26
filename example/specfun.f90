@@ -11,15 +11,18 @@ program specfun
 
   use, intrinsic :: iso_fortran_env, only: real64
   use, intrinsic :: ieee_arithmetic, only: ieee_value, ieee_positive_inf, ieee_negative_inf
-  use exponential_integrals, only: ei, e1
+  use exponential_integral, only: ei, e1
+  use numerror, only: ismall
 
   implicit none
   
   character(:), allocatable :: fmt
   real(real64) :: ei_t1, ei_t2, e1x_t1, e1x_t2, &
-                  e1z_t1, e1z_t2, e1z_t3
+                  e1z_t1, e1z_t2, e1z_t3, ei_root
   real(real64) :: h1 = 2*huge(1.0_real64)
   real(real64) :: h2 = -2*huge(1.0_real64)
+
+  ei_root = 0.3725074107813666d0
 
   ei_t1 = abs(-0.30266853926582593d0 - ei(0.3d0)) / abs(-0.30266853926582593d0)
   ei_t2 = abs(1.058563689713169d+20 - ei(50.0d0)) / abs(1.058563689713169d+20)
@@ -59,6 +62,9 @@ program specfun
   print '(a, 2(es22.15, 1x))', 'e1z(-1.0) = ', e1((-1.0d0, 0.0d0))
   print fmt, 'ei(-1.5)   = ', ei(-1.5d0)
   print fmt, '-e1x(1.5)  = ', -e1(1.5d0)
+  print fmt, 'ei(root) = ', ei(ei_root)
+  print *, ismall(1.0d-15)
+  print *, ismall(1.0d-16)
 
 end program specfun
 
