@@ -8,6 +8,11 @@ module numerror
 ! History
 ! -------
 ! 22-05-2025 - Rodrigo Castro - Original code
+!
+! References
+! ----------
+! [1] Christopher Barker. 2015. PEP 485 – A Function for testing approximate equality.
+!     https://peps.python.org/pep-0485/.
 
   use, intrinsic :: iso_fortran_env, only: real32, real64
 
@@ -20,7 +25,6 @@ module numerror
 
   interface isclose
     ! Evaluates the closeness between two real or complex numbers.
-
     module procedure isclose_real, isclose_complex
   end interface isclose
 
@@ -65,6 +69,8 @@ contains
 
   pure logical function isclose_real(a, b, rel_tol, abs_tol) 
     ! Evaluates the closeness between two real numbers.
+    ! 
+    ! Inspired by reference [1].
     !
     ! Parameters
     ! ----------
@@ -82,11 +88,6 @@ contains
     ! isclose : logical
     !   .true. if a and b are close to each other according to a tolerance, and
     !   .false. otherwise.
-    !
-    ! References
-    ! ----------
-    ! [1] Christopher Barker. 2015. PEP 485 – A Function for testing approximate equality.
-    !     https://peps.python.org/pep-0485/.
 
     real(real64), intent(in) :: a, b
     real(real64), intent(in), optional :: rel_tol, abs_tol
@@ -109,6 +110,8 @@ contains
 
   pure logical function isclose_complex(a, b, rel_tol, abs_tol) 
     ! Evaluates the closeness between two complex numbers.
+    ! 
+    ! Inspired by reference [1].
     !
     ! Parameters
     ! ----------
@@ -126,11 +129,6 @@ contains
     ! isclose : logical
     !   .true. if a and b are close to each other according to a tolerance, and
     !   .false. otherwise.
-    !
-    ! References
-    ! ----------
-    ! [1] Christopher Barker. 2015. PEP 485 – A Function for testing approximate equality.
-    !     https://peps.python.org/pep-0485/.
 
     complex(real64), intent(in) :: a, b
     real(real64), intent(in), optional :: rel_tol, abs_tol

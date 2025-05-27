@@ -7,18 +7,17 @@ module header
 !
 ! History
 ! -------
-! 22-05-2025 - Rodrigo Castro - Original code
+! dd-mm-yyyy - Rodrigo Castro - Original code
 !
 ! References
 ! ----------
-! [1] C. Rodkin. 2023. Citation Style and Reference Formats.
-!     https://www.acm.org/publications/authors/reference-formatting.
+! [1] Author. Year. Title. URL
 
   use, intrinsic :: iso_fortran_env, only: real64
 
   implicit none
   private
-  public :: phi!, get_and_display
+  public :: phi, get_and_display
 
   real(real64), parameter :: phi = 1.618033988749894d0  ! Golden ratio
 
