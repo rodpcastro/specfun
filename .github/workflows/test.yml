@@ -40,7 +40,7 @@ jobs:
         run: pip install mpmath
 
       - name: Set test points
-        run: python test/set_test_points.py
+        run: python3 test/set_test_points.py
 
       - name: Build
         run: fpm build
