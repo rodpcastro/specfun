@@ -1,13 +1,10 @@
 # Specfun
 
-<table>
-    <tr>
-        <td>Test</td>
-        <td>[![Test](Test Status Badge)][Test Status]</td>
-    </tr>
-</table>
+| **Docs** | [![Docs][Docs Status Badge][Docs Status] |
+| :------: | :--------------------------------------- |
+| **Test** | [![Test][Test Status Badge][Test Status] |
 
-[![Test](Test Status Badge)][Test Status]
+
 
 Fortran library for evaluating special mathematical functions. The list will be updated as new functions are added and tested.
 
@@ -19,5 +16,7 @@ Fortran library for evaluating special mathematical functions. The list will be 
 
 
 <!-- links -->
+[Docs Status]: https://github.com/rodpcastro/specfun
+[Docs Status Badge]: https://img.shields.io/badge/docs-todo-red
 [Test Status]: https://github.com/rodpcastro/specfun/actions/workflows/test.yml
 [Test Status Badge]: https://github.com/rodpcastro/specfun/actions/workflows/test.yml/badge.svg
