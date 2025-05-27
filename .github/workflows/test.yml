@@ -26,10 +26,10 @@ jobs:
           version: 13
 
       - name: Set up fpm
-        uses: fortran-lang/setup-fpm@v5
+        uses: fortran-lang/setup-fpm@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          fpm-version: '0.11.0'
+          fpm-version: 'latest'
 
       - name: Set up Python
         uses: actions/setup-python@v5
