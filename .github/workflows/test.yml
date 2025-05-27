@@ -1,0 +1,47 @@
+name: Test
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  pull-request:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  
+
+jobs:
+  test:
+    name: Test Special Functions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up gfortran
+        uses: fortran-lang/setup-fortran@v1
+        with:
+          compiler: gcc
+          version: 13
+
+      - name: Set up fpm
+        uses: fortran-lang/setup-fpm@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fpm-version: 'latest'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Set test points with mpmath
+        run: python -m test/set_test_points.py
+
+      - name: Build
+        run: fpm build
+
+      - name: Test
+        run: fpm test
