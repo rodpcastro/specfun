@@ -5,12 +5,11 @@ on:
     paths-ignore:
       - 'docs/**'
       - '**.md'
-  pull-request:
+  pull_request:
     paths-ignore:
       - 'docs/**'
       - '**.md'
   
-
 jobs:
   test:
     name: Test Special Functions
