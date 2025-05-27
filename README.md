@@ -11,7 +11,7 @@ Fortran library for evaluating special mathematical functions. The list will be 
 * Exponential integrals Ei and E1.
 
 ## References
-[1] Shanjie Zhang, Jianming Jin. 1996. [Computation of Special Functions][Book Zhang]. Wiley, New York, NY.
+[[1]][Book Zhang] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions. Wiley, New York, NY.
 
 <!-- Links -->
 <!-- Badges -->
