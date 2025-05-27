@@ -36,7 +36,10 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Set test points with mpmath
+      - name: Install mpmath
+        run: pip intall mpmath
+
+      - name: Set test points
         run: python -m test/set_test_points.py
 
       - name: Build
