@@ -1,8 +1,8 @@
 # Specfun
 
-| **Docs** | [![Docs][Docs Status Badge][Docs Status] |
+| **Docs** | [![Docs][Docs Status Badge]][Docs Status] |
 | :------: | :--------------------------------------- |
-| **Test** | [![Test][Test Status Badge][Test Status] |
+| **Test** | [![Test][Test Status Badge]][Test Status] |
 
 
 
