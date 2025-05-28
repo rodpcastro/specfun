@@ -1,5 +1,5 @@
-module template_module
-!* Module template. The space after * is important for Ford dokmark_alt.
+module module_template
+!* Module template. The space after * is important for Ford docmark_alt.
 !
 ! Author
 ! ------
@@ -42,4 +42,4 @@ contains
     end do
   end function fibonacci
 
-end module template_module
+end module module_template

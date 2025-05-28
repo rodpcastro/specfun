@@ -1,5 +1,5 @@
-program example_template_module
-! Working with infinity in Fortran.
+program example_module_template
+! Checks if module template runs fine.
 !
 ! Author
 ! ------
@@ -20,9 +20,9 @@ program example_template_module
   fib = fibonacci(n)
 
   print '(a)', '---------------'
-  print '(a)', 'Template module'
+  print '(a)', 'Module template'
   print '(a)', '---------------'
   print '(a, es22.15)', 'phi = ', phi
   print '(a, *(i0, 1x))', 'fib = ', fib(1:n)
 
-end program example_template_module
+end program example_module_template
