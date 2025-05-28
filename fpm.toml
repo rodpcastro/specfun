@@ -1,4 +1,4 @@
-name = "specfun"
+name = "Specfun"
 version = "0.1.0"
 license = "MIT"
 author = "Rodrigo Castro"
@@ -22,3 +22,31 @@ source-form = "free"
 
 [dependencies]
 test-drive = {git = "https://github.com/fortran-lang/test-drive.git" }
+
+[extra.ford]
+author = "Rodrigo Castro"
+github = "https://github.com/rodpcastro/"
+website = "https://rodpcastro.github.io/"
+
+project = "Specfun"
+summary = "Fortran library for evaluating mathematical Special Functions"
+license = "mit"
+project_github = "https://github.com/rodpcastro/specfun/"
+project_download = "https://github.com/rodpcastro/specfun/archive/refs/heads/main.zip"
+
+src_dir = "./src"
+output_dir = "./docs"
+extensions = ["f90"]
+exclude = ["src/header.f90"]
+display = ["public"]
+md_extensions = "markdown.extensions.toc"
+print_creation_date = true
+creation_date = "%Y-%m-%d" 
+source = true
+graph = true
+sort = "src"
+coloured_edges = true
+
+[extra.ford.extra_mods]
+iso_fortran_env = "https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html"
+ieee_arithmetic = "https://gcc.gnu.org/onlinedocs/gfortran/IEEE-modules.html"
