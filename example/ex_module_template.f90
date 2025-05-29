@@ -10,7 +10,7 @@ program example_module_template
 ! 28-04-2025 - Rodrigo Castro - Original code
 
   use, intrinsic :: iso_fortran_env, only: int64
-  use template_module, only: phi, fibonacci
+  use module_template, only: phi, fibonacci
 
   implicit none
   
