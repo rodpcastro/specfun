@@ -1,11 +1,5 @@
 # WildF
 
-<!-- | **Lang**    | [![Fortran][Fortran Badge]][Fortran]      | -->
-<!-- | :---------- | :---------------------------------------- | -->
-<!-- | **Docs**    | [![Docs][Docs Status Badge]][Docs Status] | -->
-<!-- | **Test**    | [![Test][Test Status Badge]][Test Status] | -->
-<!-- | **License** | [![License Badge]][License]               | -->
-
 [![Fortran][Fortran Badge]][Fortran]
 [![Docs][Docs Status Badge]][Docs Status]
 [![Test][Test Status Badge]][Test Status]
@@ -16,7 +10,7 @@ WildF is a Fortran library for evaluating mathematical [Special Functions]. Just
 ## Functions
 In the following list, $x \in \mathbb{R}$ and $z \in \mathbb{C}$.
 
-* Exponential integrals \(Ei(x)\) and \(E1(z)\).
+* Exponential integrals $\mathrm{Ei}(x)$ and $\mathrm{E}_1(z)$.
 
 This list will be updated as new functions are added and tested.
 
