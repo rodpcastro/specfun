@@ -11,6 +11,6 @@ build:
     build:
       html:
         - tail -n +3 README.md > project.md
-        - sed -i -E 's/\$\([^$]\+\)\$/\\(\1\\)/g' project.md
+        - sed -i -E 's/\\$\([^\$]\+\)\\$/\\(\1\\)/g' project.md
         - ford project.md -o $READTHEDOCS_OUTPUT/html/
 
