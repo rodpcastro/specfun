@@ -3,9 +3,9 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "3.13"
-  apt_packages:
-    - graphviz
   commands:
+    - apt update -y
+    - apt install -y graphviz
     - pip install ford
     - tail -n +3 README.md > project.md
     - sed -i 's/\$\([^$]\+\)\$/\\(\1\\)/g' project.md
