@@ -21,8 +21,8 @@ This list will be updated as new functions are added and tested.
 <!-- Badges -->
 [Fortran]: https://fortran-lang.org/
 [Fortran Badge]: https://img.shields.io/badge/Fortran-734f96?logo=fortran&style=flat
-[Docs Status]: https://github.com/rodpcastro/wildf
-[Docs Status Badge]: https://img.shields.io/badge/docs-todo-red
+[Docs Status]: https://wildf.readthedocs.io/
+[Docs Status Badge]: https://img.shields.io/readthedocs/wildf?color=blue
 [Test Status]: https://github.com/rodpcastro/wildf/actions/workflows/test.yml
 [Test Status Badge]: https://github.com/rodpcastro/wildf/actions/workflows/test.yml/badge.svg
 [License]: https://github.com/rodpcastro/wildf/blob/main/LICENSE
