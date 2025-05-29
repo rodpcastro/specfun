@@ -8,8 +8,7 @@ build:
       - apt update -y
       - apt install -y graphviz
       - pip install ford
-    create_project_description:
+    build:
       - tail -n +3 README.md > project.md
       - sed -i 's/\$\([^$]\+\)\$/\\(\1\\)/g' project.md
-    build_docs:
       - ford project.md
