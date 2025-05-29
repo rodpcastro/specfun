@@ -29,7 +29,7 @@ github = "https://github.com/rodpcastro/"
 website = "https://rodpcastro.github.io/"
 
 project = "WildF"
-summary = "Fortran library for evaluating mathematical Special Functions"
+summary = "WildF is a Fortran library for evaluating mathematical Special Functions."
 license = "mit"
 project_github = "https://github.com/rodpcastro/wildf/"
 project_download = "https://github.com/rodpcastro/wildf/archive/refs/heads/main.zip"
