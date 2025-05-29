@@ -1,5 +1,5 @@
 module constants
-! Mathematical constants.
+!* Mathematical constants.
 !
 ! Author
 ! ------
@@ -12,7 +12,7 @@ module constants
 ! References
 ! ----------
 ! [1] N. J. A. Sloane. 1964. The Online Encyclopedia of Integer Sequences.
-!     https://oeis.org/.
+!*    https://oeis.org/.
 
   use, intrinsic :: iso_fortran_env, only: real64
 
@@ -20,7 +20,7 @@ module constants
   private
   public :: pi, gm
   
-  real(real64), parameter :: pi = 3.141592653589793d0
-  real(real64), parameter :: gm = 0.5772156649015329d0 ! Euler's constant
+  real(real64), parameter :: pi = 3.141592653589793d0   !! π
+  real(real64), parameter :: gm = 0.5772156649015329d0  !! Euler's constant γ
 
 end module constants

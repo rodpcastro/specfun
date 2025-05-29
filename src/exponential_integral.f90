@@ -1,5 +1,5 @@
 module exponential_integral
-! Exponential integrals Ei and E1.
+!* Exponential integrals Ei and E1.
 !
 ! Author
 ! ------
@@ -12,7 +12,7 @@ module exponential_integral
 ! References
 ! ----------
 ! [1] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions.
-!     Wiley, New York, NY.
+!*    Wiley, New York, NY.
 
   use, intrinsic :: iso_fortran_env, only: int16, real64
   use, intrinsic :: ieee_arithmetic, only: ieee_value, &
@@ -23,16 +23,17 @@ module exponential_integral
 
   implicit none
   private
-  public :: ei, e1, e1x, e1z
+  public :: ei, e1
   
   interface e1
+    !! Exponential integral E1.
     module procedure e1x, e1z
   end interface e1
 
 contains
 
   pure real(real64) function ei(x)
-    ! Exponential integral Ei(x).
+    !! Exponential integral Ei(x).
     !
     ! Parameters
     ! ----------
@@ -74,7 +75,7 @@ contains
   end function ei
 
   pure real(real64) function e1x(x)
-    ! Exponential integral E1(x).
+    !! Exponential integral E1(x).
     !
     ! Parameters
     ! ----------
@@ -86,7 +87,7 @@ contains
     ! e1x : real(real64) 
     !   Exponential integral E1(x).
 
-    real(real64), intent(in) :: x
+    real(real64), intent(in) :: x  !! x ≥ 0
     real(real64) :: r
     integer(int16) :: n, m
 
@@ -113,7 +114,7 @@ contains
   end function e1x
 
   pure complex(real64) function e1z(z)
-    ! Exponential integral E1(z).
+    !! Exponential integral E1(z).
     !
     ! Parameters
     ! ----------

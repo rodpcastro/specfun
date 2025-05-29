@@ -1,5 +1,5 @@
 module numerror
-! Numerical error handling.
+!* Numerical error handling.
 !
 ! Author
 ! ------
@@ -12,7 +12,7 @@ module numerror
 ! References
 ! ----------
 ! [1] Christopher Barker. 2015. PEP 485 – A Function for testing approximate equality.
-!     https://peps.python.org/pep-0485/.
+!*    https://peps.python.org/pep-0485/.
 
   use, intrinsic :: iso_fortran_env, only: real32, real64
 
@@ -20,18 +20,21 @@ module numerror
   private
   public :: eps32, eps64, isclose, ismall
 
-  real(real32), parameter :: eps32 = epsilon(1.0)    ! eps32 = 1.19209290E-07
-  real(real64), parameter :: eps64 = epsilon(1.0d0)  ! eps64 = 2.2204460492503131E-016
+  real(real32), parameter :: eps32 = epsilon(1.0_real32)    !! single precision machine epsilon
+  real(real64), parameter :: eps64 = epsilon(1.0_real64)  !! double precision machine epsilon
+
+  ! eps32 = 1.19209290E-07
+  ! eps64 = 2.2204460492503131E-016
 
   interface isclose
-    ! Evaluates the closeness between two real or complex numbers.
+    !! Evaluates the closeness between two real or complex numbers.
     module procedure isclose_real, isclose_complex
   end interface isclose
 
 contains
 
   pure logical function ismall(x, ref, tol)
-    ! Evaluates the smallness of x compared to a reference value.
+    !! Evaluates the smallness of x compared to a reference value.
     !
     ! Parameters
     ! ----------
@@ -49,7 +52,8 @@ contains
     !   .false. otherwise.
 
     real(real64), intent(in) :: x
-    real(real64), intent(in), optional :: ref, tol
+    real(real64), intent(in), optional :: ref  !! reference value, default=1.0_real64
+    real(real64), intent(in), optional :: tol  !! tolerance, default=eps64
     real(real64) :: ref_, tol_
 
     if (present(ref)) then
@@ -68,7 +72,7 @@ contains
   end function ismall
 
   pure logical function isclose_real(a, b, rel_tol, abs_tol) 
-    ! Evaluates the closeness between two real numbers.
+    !! Evaluates the closeness between two real numbers.
     ! 
     ! Inspired by reference [1].
     !
@@ -90,7 +94,8 @@ contains
     !   .false. otherwise.
 
     real(real64), intent(in) :: a, b
-    real(real64), intent(in), optional :: rel_tol, abs_tol
+    real(real64), intent(in), optional :: rel_tol  !! relative tolerance, default=eps32
+    real(real64), intent(in), optional :: abs_tol  !! absolute tolerace, default=eps32
     real(real64) :: rel_tol_, abs_tol_
 
     if (present(rel_tol)) then
@@ -109,7 +114,7 @@ contains
   end function isclose_real
 
   pure logical function isclose_complex(a, b, rel_tol, abs_tol) 
-    ! Evaluates the closeness between two complex numbers.
+    !! Evaluates the closeness between two complex numbers.
     ! 
     ! Inspired by reference [1].
     !
@@ -131,7 +136,8 @@ contains
     !   .false. otherwise.
 
     complex(real64), intent(in) :: a, b
-    real(real64), intent(in), optional :: rel_tol, abs_tol
+    real(real64), intent(in), optional :: rel_tol  !! relative tolerance, default=eps32
+    real(real64), intent(in), optional :: abs_tol  !! absolute tolerance, default=eps32
     real(real64) :: are, aim, bre, bim
     real(real64) :: rel_tol_, abs_tol_
 

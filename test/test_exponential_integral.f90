@@ -1,5 +1,5 @@
 module test_exponential_integral
-! Simple test of special functions.
+!* Simple test of special functions.
 !
 ! Author
 ! ------
@@ -7,10 +7,11 @@ module test_exponential_integral
 !
 ! History
 ! -------
-! 25-05-2025 - Rodrigo Castro - Original code
+!* 25-05-2025 - Rodrigo Castro - Original code
 
+  use, intrinsic :: iso_fortran_env, only: real64
   use testdrive, only : new_unittest, unittest_type, error_type, check
-  use exponential_integral, only: ei, e1x, e1z
+  use exponential_integral, only: ei, e1
   use specfun_evaluation, only: eval_write
 
   implicit none
@@ -51,6 +52,14 @@ contains
 
     call check(error, all(specfun_ic))
     if (allocated(error)) return
+
+  contains
+
+    pure real(real64) function e1x(x) 
+      real(real64), intent(in) :: x
+      e1x = e1(x)
+    end function e1x
+
   end subroutine test_e1x
 
   subroutine test_e1z(error)
@@ -63,6 +72,14 @@ contains
 
     call check(error, all(specfun_ic))
     if (allocated(error)) return
+
+  contains
+
+    pure complex(real64) function e1z(z) 
+      complex(real64), intent(in) :: z
+      e1z = e1(z)
+    end function e1z
+
   end subroutine test_e1z
 
 end module test_exponential_integral
