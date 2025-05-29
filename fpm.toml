@@ -43,6 +43,7 @@ md_extensions = "markdown.extensions.toc"
 print_creation_date = true
 creation_date = "%Y-%m-%d %H:%M %z" 
 source = true
+search = true
 graph = true
 sort = "src"
 coloured_edges = true
