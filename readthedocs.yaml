@@ -10,7 +10,5 @@ build:
       - pip install ford
     build:
       html:
-        - tail -n +3 README.md > project.md
-        - sed -i 's/\$\([^$]*\)\$/\\(\1\\)/g' project.md
+        - python ford.py
         - ford project.md -o $READTHEDOCS_OUTPUT/html/
-
