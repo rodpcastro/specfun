@@ -4,9 +4,10 @@ build:
   tools:
     python: "3.13"
   jobs:
-    install:
+    pre-install:
       - apt update -y
       - apt install -y graphviz
+    install:
       - pip install ford
     build:
       html:
