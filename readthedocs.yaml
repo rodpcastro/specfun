@@ -4,7 +4,7 @@ build:
   tools:
     python: "3.13"
   jobs:
-    pre-install:
+    pre_install:
       - apt update -y
       - apt install -y graphviz
     install:
