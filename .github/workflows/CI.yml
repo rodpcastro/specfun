@@ -51,12 +51,13 @@ jobs:
       - name: Create coverage report
         env:
           COV_DIR: build/coverage
-          COV_FILE: build/coverage/coverage.info
+          RAW_COV: build/coverage/raw_coverage.info
+          COV: build/coverage/coverage.info
         run: |
           mkdir ${{ env.COV_DIR }}
           mv ./build/gfortran_*/*/* ${{ env.COV_DIR }}
-          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.COV_FILE }}
-          lcov --remove ${{ env.COV_FILE }} '*/test' '*/build' --output-file ${{ env.COV_FILE }}
+          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.RAW_COV }}
+          lcov --remove ${{ env.RAW_COV }} '*/test/*' '*/build/*' --output-file ${{ env.COV }}
 
       - name: Upload coverage.info
         uses: actions/upload-artifact@v4
