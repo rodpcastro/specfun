@@ -23,6 +23,6 @@ def main(input_file, output_file):
         file.write(processed_content)
 
 if __name__ == "__main__":
-    # This script creates a FORD project.md from the README.md
+    # This script creates a FORD project.md from README.md
 
     main('README.md', 'project.md')
