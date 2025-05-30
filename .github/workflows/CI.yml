@@ -54,9 +54,9 @@ jobs:
           COV_FILE: build/coverage/coverage.info
         run: |
           mkdir ${{ env.COV_DIR }}
-          mv ./build/gfortran_*/*/* ${{ COV_DIR }}
-          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ COV_FILE }}
-          lcov --remove ${{ COV_FILE }} '*/test' '*/build' --output-file ${{ COV_FILE }}
+          mv ./build/gfortran_*/*/* ${{ env.COV_DIR }}
+          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.COV_FILE }}
+          lcov --remove ${{ env.COV_FILE }} '*/test' '*/build' --output-file ${{ env.COV_FILE }}
 
       - name: Upload coverage.info
         uses: actions/upload-artifact@v4
