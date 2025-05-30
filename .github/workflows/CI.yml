@@ -1,4 +1,4 @@
-name: Test
+name: CI
 
 on:
   push:
@@ -25,6 +25,9 @@ jobs:
           compiler: gcc
           version: 13
 
+      - name: Set up lcov
+        run: sudo apt-get install lcov
+
       - name: Set up fpm
         uses: fortran-lang/setup-fpm@v7
         with:
@@ -32,7 +35,7 @@ jobs:
           fpm-version: 'latest'
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
@@ -43,4 +46,21 @@ jobs:
         run: python3 test/set_test_points.py
 
       - name: Test
-        run: fpm test
+        run: fpm test --flag -coverage
+
+      - name: Create coverage report
+        env:
+          COV_DIR: build/coverage
+          COV_FILE: build/coverage/coverage.info
+        run: |
+          mkdir ${{ env.COV_DIR }}
+          mv ./build/gfortran_*/*/* ${{ COV_DIR }}
+          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ COV_FILE }}
+          lcov --remove ${{ COV_FILE }} '*/test' '*/build' --output-file ${{ COV_FILE }}
+
+      - name: Upload coverage.info
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: build/coverage/coverage.info
+
