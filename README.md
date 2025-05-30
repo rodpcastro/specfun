@@ -1,9 +1,10 @@
 # WildF
 
-[![Fortran][Fortran Badge]][Fortran]
-[![Docs][Docs Status Badge]][Docs Status]
-[![Test][Test Status Badge]][Test Status]
-[![License Badge]][License]
+[![Fortran][Fortran Badge]][Fortran Website]
+[![Docs][Docs Badge]][Docs Website]
+[![Test][Test Badge]][Test Workflow]
+[![Coverage][Coverage Badge]][Coverage Website]
+[![License][License Badge]][License File]
 
 WildF is a Fortran library for evaluating mathematical [Special Functions]. Just like wild creatures, Special Functions are unusual, but interesting mathematical objects that arise in many areas of applied mathematics. This library aims to serve as a support for any project that needs the computation of these rare species.
 
@@ -19,13 +20,15 @@ This list will be updated as new functions are added and tested.
 
 <!-- Links -->
 <!-- Badges -->
-[Fortran]: https://fortran-lang.org/
+[Fortran Website]: https://fortran-lang.org/
 [Fortran Badge]: https://img.shields.io/badge/Fortran-734f96?logo=fortran&style=flat
-[Docs Status]: https://wildf.readthedocs.io/
-[Docs Status Badge]: https://img.shields.io/readthedocs/wildf?color=blue
-[Test Status]: https://github.com/rodpcastro/wildf/actions/workflows/test.yml
-[Test Status Badge]: https://github.com/rodpcastro/wildf/actions/workflows/test.yml/badge.svg
-[License]: https://github.com/rodpcastro/wildf/blob/main/LICENSE
+[Docs Website]: https://wildf.readthedocs.io/
+[Docs Badge]: https://img.shields.io/readthedocs/wildf?color=blue
+[Test Workflow]: https://github.com/rodpcastro/wildf/actions/workflows/CI.yml
+[Test Badge]: https://github.com/rodpcastro/wildf/actions/workflows/CI.yml/badge.svg
+[Coverage Website]: https://app.codecov.io/gh/rodpcastro/wildf
+[Coverage Badge]: https://codecov.io/github/rodpcastro/wildf/badge.svg
+[License File]: https://github.com/rodpcastro/wildf/blob/main/LICENSE
 [License Badge]: https://img.shields.io/badge/License-MIT-yellow
 <!-- Introduction -->
 [Special Functions]: https://www.britannica.com/science/special-function
