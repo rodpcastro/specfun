@@ -1,0 +1,5 @@
+ignore:
+  - "test"
+  - "build"
+  - "example"
+  - "src/module_template.f90"
