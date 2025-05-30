@@ -11,8 +11,8 @@ on:
       - '**.md'
   
 jobs:
-  test:
-    name: Test Special Functions
+  test_cov:
+    name: Test and Coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -59,9 +59,8 @@ jobs:
           lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.RAW_COV }}
           lcov --remove ${{ env.RAW_COV }} '*/test/*' '*/build/*' --output-file ${{ env.COV }}
 
-      - name: Upload coverage.info
-        uses: actions/upload-artifact@v4
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v5
         with:
-          name: coverage
-          path: build/coverage/coverage.info
-
+          files: build/coverage/coverage.info
+          token: ${{ secrets.CODECOV_TOKEN }}
