@@ -11,20 +11,12 @@ WildF is a [Fortran][Fortran Website] library for evaluating mathematical [Speci
 ## Functions
 The following list describes the implemented functions, each validated to 8 digits of precision within the specified domains, where $x \in \mathbb{R}$ and $z \in \mathbb{C}$. Outside these domains, the same precision is not guaranteed.
 
-* Exponential integral $\mathrm{Ei}(x)$, for $10^{-16} \leq x \leq 10^2$.
-* Exponential integral $\mathrm{E}_1(x)$, for $10^{-16} \leq x \leq 10^2$.
-* Exponential integral $\mathrm{E}_1(z)$, for $10^{-16} \leq \left| \Re(z) \right| \leq 10^2$ and $10^{-16} \leq \left| \Im(z) \right| \leq 10^2$, except for $-60 \lt \Re(z) \leq 0$ and $\left| \Im(z) \right| \lt 0.5$.
-
 * Exponential integral $\mathrm{Ei}(x)$
-    * $\{ x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \}$
+  * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
 * Exponential integral $\mathrm{E}_1(x)$
-    * $\{ x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \}$
+  * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
 * Exponential integral $\mathrm{E}_1(z)$
-    * $\{ z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2, 10^{-16} \leq |\Im(z)| \leq 10^2, z \notin (-60, 0] \times (-0.5, 0.5) \}$
-
-* Exponential integral $\mathrm{Ei}(x)$ for $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
-* Exponential integral $\mathrm{E}_1(x)$ for $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
-* Exponential integral $\mathrm{E}_1(z)$ for $\lbrace z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2, 10^{-16} \leq |\Im(z)| \leq 10^2, z \notin (-60, 0] \times (-0.5, 0.5) \rbrace$
+  * $\lbrace z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2, 10^{-16} \leq |\Im(z)| \leq 10^2, z \notin (-60, 0] \times (-0.5, 0.5) \rbrace$
 
 This list will be updated as new functions are added and tested.
 
