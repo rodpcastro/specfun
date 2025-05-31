@@ -68,7 +68,7 @@ contains
     print '(a, es22.15)', 'e1z_t2 = ', e1z_t2
     print '(a, es22.15)', 'e1z_t3 = ', e1z_t3
     print '(a, 2(es22.15, 1x))', 'e1z(-1.0) = ', e1((-1.0_wp, 0.0_wp))
-    print '(a, sp, g0, f4.1)', 'e1z(0.0) = ', e1((0.0_wp, 0.0_wp))
+    print '(a, sp, g0, es22.15)', 'e1z(0.0) = ', e1((0.0_wp, 0.0_wp))
   end subroutine example_e1z
 
 end module example_exponential_integral

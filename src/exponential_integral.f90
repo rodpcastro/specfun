@@ -111,7 +111,7 @@ contains
     zabs = abs(z)
 
     if (zabs == 0.0_wp) then
-      e1z = cmplx(pinf(), 0.0_wp)
+      e1z = cmplx(pinf(), -pi)
     else if (zabs <= 10.0_wp .or. z%re < 0.0_wp .and. zabs < 20.0_wp) then
       e1z = z
       r = z
