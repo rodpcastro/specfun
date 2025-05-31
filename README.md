@@ -15,6 +15,10 @@ In the following list, $x \in \mathbb{R}$ and $z \in \mathbb{C}$.
 
 This list will be updated as new functions are added and tested.
 
+## Tests
+Tests are conducted by comparing the WildF results with those of [mpmath], an arbitrary-precision numerical library. These tests ensure at least 8 digits of precision within the specified domains.
+Testing routines are built using [test-drive], a standard Fortran unit testing framework.
+
 ## Documentation
 The [API documentation][Docs Website] for this library is generated using [FORD] and is deployed and hosted on [ReadTheDocs].
 
@@ -35,6 +39,9 @@ The [API documentation][Docs Website] for this library is generated using [FORD]
 [License Badge]: https://img.shields.io/badge/License-MIT-yellow
 <!-- Introduction -->
 [Special Functions]: https://www.britannica.com/science/special-function
+<!-- Tests -->
+[mpmath]: https://mpmath.org/
+[test-drive]: https://github.com/fortran-lang/test-drive
 <!-- Documentation -->
 [FORD]: https://forddocs.readthedocs.io/
 [ReadTheDocs]: https://about.readthedocs.com/
