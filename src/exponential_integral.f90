@@ -14,6 +14,7 @@ module exponential_integral
 ! [1] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions.
 !*    Wiley, New York, NY.
 
+  use, intrinsic :: iso_fortran_env, only: stderr => error_unit
   use wildf_kinds, only: i2, wp
   use constants, only: pi, gm, ninf, pinf
   use numerror, only: ismall
@@ -31,6 +32,8 @@ contains
 
   pure real(wp) function ei(x)
     !! Exponential integral Ei(x).
+    !
+    ! {x ∈ ℝ | x ∈ [1e-16, 1e2]}
 
     real(wp), intent(in) :: x
 
@@ -64,6 +67,8 @@ contains
 
   pure real(wp) function e1x(x)
     !! Exponential integral E1(x).
+    !
+    ! {x ∈ ℝ | x ∈ [1e-16, 1e2]}
 
     real(wp), intent(in) :: x  !! x ≥ 0
 
@@ -94,6 +99,8 @@ contains
 
   pure complex(wp) function e1z(z)
     !! Exponential integral E1(z).
+    !
+    ! {z ∈ ℂ | 1e-16 ≤ |Re(z)| ≤ 1e2, 1e-16 ≤ |Im(z)| ≤ 1e2, z ∉ (-61, 0]×(-0.6, 0.6)}
 
     complex(wp), intent(in) :: z
 

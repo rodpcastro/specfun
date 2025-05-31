@@ -39,10 +39,10 @@ def set_test_points_exponential_integral_e1z():
     Z = X + 1j * Y
     zv = Z.ravel()
 
-    # For -60 < real(z) < 0 and |imag(z)| < 0.5, the implemented e1z
-    # cannot achieve the desired precision. I'll look for a fix.
-    zre_mask = np.logical_and(zv.real > -60, zv.real < 0)
-    zim_mask = np.abs(zv.imag) < 0.5
+    # For {z ∈ ℂ | z ∈ (-61, 0]×(-0.6, 0.6)}, the implemented
+    # e1z cannot achieve the desired precision of 8 digits.
+    zre_mask = np.logical_and(zv.real > -61, zv.real <= 0)
+    zim_mask = np.abs(zv.imag) < 0.6
     zmask = np.logical_and(zre_mask, zim_mask)
     zv = zv[~zmask]
 
