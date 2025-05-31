@@ -11,7 +11,9 @@ WildF is a [Fortran][Fortran Website] library for evaluating mathematical [Speci
 ## Functions
 In the following list, $x \in \mathbb{R}$ and $z \in \mathbb{C}$.
 
-* Exponential integrals $\mathrm{Ei}(x)$ and $\mathrm{E}_1(z)$.
+* Exponential integral $\mathrm{Ei}(x)$, for $|x| \leq 10^2$.
+* Exponential integral $\mathrm{E}_1(x)$, for $|x| \leq 10^2$.
+* Exponential integral $\mathrm{E}_1(z)$, for $|\Re(x)| \leq 10^2$ and $|\Im(x)| \leq 10^2$.
 
 This list will be updated as new functions are added and tested.
 
