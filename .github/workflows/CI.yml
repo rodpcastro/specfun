@@ -56,7 +56,8 @@ jobs:
         run: |
           mkdir ${{ env.COV_DIR }}
           mv ./build/gfortran_*/*/* ${{ env.COV_DIR }}
-          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.RAW_COV }}
+          lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.COV }}
+          # lcov --capture --base-directory . --directory ${{ env.COV_DIR }} --output-file ${{ env.RAW_COV }}
           # lcov --remove ${{ env.RAW_COV }} '*/test/*' '*/build/*' --output-file ${{ env.COV }}
 
       - name: Upload coverage report
