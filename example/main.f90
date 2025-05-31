@@ -7,16 +7,16 @@ program examples
 !
 ! History
 ! -------
-! 29-05-2025 - Rodrigo Castro - Original code
+! 30-05-2025 - Rodrigo Castro - Original code
 
-  use, intrinsic :: iso_fortran_env, only: real64
-  use example_module_template, only: example_mod_template
-  use example_infinity, only: example_inf
-  use example_exponential_integral, only: example_ei, example_e1x, example_e1z
+  use example_module_template
+  use example_constants
+  use example_exponential_integral
 
   implicit none
   
   call example_mod_template()
+  call example_const()
   call example_inf()
   call example_ei()
   call example_e1x()

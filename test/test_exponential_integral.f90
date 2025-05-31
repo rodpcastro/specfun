@@ -1,5 +1,5 @@
 module test_exponential_integral
-!* Simple test of special functions.
+! Test of exponential integrals Ei and E1.
 !
 ! Author
 ! ------
@@ -7,12 +7,12 @@ module test_exponential_integral
 !
 ! History
 ! -------
-!* 25-05-2025 - Rodrigo Castro - Original code
+! 30-05-2025 - Rodrigo Castro - Original code
 
-  use, intrinsic :: iso_fortran_env, only: real64
+  use wildf_kinds, only: wp
   use testdrive, only : new_unittest, unittest_type, error_type, check
-  use exponential_integral, only: ei, e1
   use specfun_evaluation, only: eval_write
+  use exponential_integral, only: ei, e1
 
   implicit none
   private
@@ -55,8 +55,8 @@ contains
 
   contains
 
-    pure real(real64) function e1x(x) 
-      real(real64), intent(in) :: x
+    pure real(wp) function e1x(x) 
+      real(wp), intent(in) :: x
       e1x = e1(x)
     end function e1x
 
@@ -75,8 +75,8 @@ contains
 
   contains
 
-    pure complex(real64) function e1z(z) 
-      complex(real64), intent(in) :: z
+    pure complex(wp) function e1z(z) 
+      complex(wp), intent(in) :: z
       e1z = e1(z)
     end function e1z
 

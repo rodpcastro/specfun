@@ -7,18 +7,15 @@ module exponential_integral
 !
 ! History
 ! -------
-! 23-04-2025 - Rodrigo Castro - Original code
+! 30-05-2025 - Rodrigo Castro - Original code
 !
 ! References
 ! ----------
 ! [1] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions.
 !*    Wiley, New York, NY.
 
-  use, intrinsic :: iso_fortran_env, only: int16, real64
-  use, intrinsic :: ieee_arithmetic, only: ieee_value, &
-                                           ieee_positive_inf, &
-                                           ieee_negative_inf
-  use constants, only: pi, gm
+  use wildf_kinds, only: i2, wp
+  use constants, only: pi, gm, ninf, pinf
   use numerror, only: ismall
 
   implicit none
@@ -32,28 +29,19 @@ module exponential_integral
 
 contains
 
-  pure real(real64) function ei(x)
+  pure real(wp) function ei(x)
     !! Exponential integral Ei(x).
-    !
-    ! Parameters
-    ! ----------
-    ! x : real(real64)
-    !   Real number.
-    !    
-    ! Returns
-    ! -------
-    ! ei : real(real64) 
-    !   Exponential integral of x.
 
-    real(real64), intent(in) :: x
-    real(real64) :: r
-    integer(int16) :: n
+    real(wp), intent(in) :: x
 
-    if (x == 0.0d0) then
-      ei = ieee_value(1.0_real64, ieee_negative_inf)
-    else if (x < 0.0d0) then
+    real(wp) :: r
+    integer(i2) :: n
+
+    if (x == 0.0_wp) then
+      ei = ninf()
+    else if (x < 0.0_wp) then
       ei = -e1x(-x)
-    else if (x <= 40.0d0) then
+    else if (x <= 40.0_wp) then
       ei = x
       r = x
       do n = 2, 101
@@ -63,8 +51,8 @@ contains
       end do
       ei = ei + gm + log(x)
     else
-      ei = 1.0d0
-      r = 1.0d0
+      ei = 1.0_wp
+      r = 1.0_wp
       do n = 1, 20
         r = r * n / x
         ei = ei + r
@@ -74,26 +62,17 @@ contains
 
   end function ei
 
-  pure real(real64) function e1x(x)
+  pure real(wp) function e1x(x)
     !! Exponential integral E1(x).
-    !
-    ! Parameters
-    ! ----------
-    ! x : real(real64)
-    !   Real number ≥ 0.
-    !    
-    ! Returns
-    ! -------
-    ! e1x : real(real64) 
-    !   Exponential integral E1(x).
 
-    real(real64), intent(in) :: x  !! x ≥ 0
-    real(real64) :: r
-    integer(int16) :: n, m
+    real(wp), intent(in) :: x  !! x ≥ 0
 
-    if (x == 0.0d0) then
-      e1x = ieee_value(1.0_real64, ieee_positive_inf)
-    else if (x <= 1.0d0) then
+    real(wp) :: r
+    integer(i2) :: n, m
+
+    if (x == 0.0_wp) then
+      e1x = pinf()
+    else if (x <= 1.0_wp) then
       e1x = x
       r = x
       do n = 2, 26
@@ -103,39 +82,30 @@ contains
       end do
       e1x = e1x - gm - log(x)
     else
-      m = int(20.0 + 80.0/x, int16)
-      r = 0.0d0
+      m = int(20.0_wp + 80.0_wp/x, i2)
+      r = 0.0_wp
       do n = m, 1, -1
-        r = n / (1.0d0 + n / (x + r))
+        r = n / (1.0_wp + n / (x + r))
       end do
       e1x = exp(-x) / (x + r)
     end if
 
   end function e1x
 
-  pure complex(real64) function e1z(z)
+  pure complex(wp) function e1z(z)
     !! Exponential integral E1(z).
-    !
-    ! Parameters
-    ! ----------
-    ! z : complex(real64)
-    !   Complex number.
-    !    
-    ! Returns
-    ! -------
-    ! e1z : complex(real64) 
-    !   Exponential integral E1(z).
 
-    complex(real64), intent(in) :: z
-    real(real64) :: zabs
-    complex(real64) :: r
-    integer(int16) :: n
+    complex(wp), intent(in) :: z
+
+    real(wp) :: zabs
+    complex(wp) :: r
+    integer(i2) :: n
 
     zabs = abs(z)
 
-    if (zabs == 0.0d0) then
-      e1z = cmplx(ieee_value(1.0_real64, ieee_positive_inf), 0.0_real64)
-    else if (zabs <= 10.0d0 .or. z%re < 0.0d0 .and. zabs < 20.0d0) then
+    if (zabs == 0.0_wp) then
+      e1z = cmplx(pinf(), 0.0_wp)
+    else if (zabs <= 10.0_wp .or. z%re < 0.0_wp .and. zabs < 20.0_wp) then
       e1z = z
       r = z
       do n = 2, 151
@@ -145,12 +115,14 @@ contains
       end do
       e1z = e1z - gm - log(z)
     else
-      r = (0.0d0, 0.0d0)
+      r = (0.0_wp, 0.0_wp)
       do n = 120, 1, -1
-        r = n / (1.0d0 + n / (z + r))
+        r = n / (1.0_wp + n / (z + r))
       end do
       e1z = exp(-z) / (z + r)
-      if (z%re <= 0.0d0 .and. z%im == 0.0d0) e1z = e1z + cmplx(0.0d0, -pi)
+      if (z%re <= 0.0_wp .and. z%im == 0.0_wp) then
+        e1z = e1z + cmplx(0.0_wp, -pi)
+      end if
     end if
 
   end function e1z

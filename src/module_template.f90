@@ -14,22 +14,22 @@ module module_template
 ! [1] Author. Year. Title.
 !*    URL
 
-  use, intrinsic :: iso_fortran_env, only: int64, real64
+  use wildf_kinds, only: i1, wp
 
   implicit none
   private
   public :: phi, fibonacci
 
-  real(real64), parameter :: phi = 1.618033988749894d0  !! Golden ratio φ
+  real(wp), parameter :: phi = 1.61803398874989484820458683436563811e+0_wp  !! Golden ratio φ
 
 contains
 
   pure function fibonacci(n) result(fib)
     !! n first terms of the Fibonacci sequence.
 
-    integer(int64), intent(in) :: n  !! number of terms
-    integer(int64) :: fib(n)
-    integer(int64) :: i
+    integer(i1), intent(in) :: n  !! number of terms
+    integer(i1) :: fib(n)
+    integer(i1) :: i
 
     do i = 1, n
       if (i == 1) then

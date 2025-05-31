@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# This script creates a set of test points for WildF functions.
+
 from pathlib import Path
 import numpy as np
 import mpmath
