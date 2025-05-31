@@ -16,7 +16,7 @@ The following list describes the implemented functions, each validated to at lea
 * Exponential integral $\mathrm{E}_1(x)$
     * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
 * Exponential integral $\mathrm{E}_1(z)$
-    * $\lbrace z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2 \, 10^{-16} \leq |\Im(z)| \leq 10^2 \, z \notin (-61, 0] \times (-0.6, 0.6) \rbrace$
+    * $\lbrace z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2,\thinspace 10^{-16} \leq |\Im(z)| \leq 10^2,\thinspace z \notin (-61, 0] \times (-0.6, 0.6) \rbrace$
 
 This list will be updated as new functions are added and tested.
 
