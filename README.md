@@ -9,11 +9,11 @@
 WildF is a [Fortran][Fortran Website] library for evaluating mathematical [Special Functions]. Just like wild creatures, Special Functions are unusual, but interesting mathematical objects that arise in many areas of applied mathematics. This library aims to serve as a support for any project that needs the computation of these rare species.
 
 ## Functions
-In the following list, $x \in \mathbb{R}$ and $z \in \mathbb{C}$.
+The following list describes the implemented functions, each validated to 8 digits of precision within the specified domains, where $x \in \mathbb{R}$ and $z \in \mathbb{C}$. Outside these domains, the same precision is not guaranteed.
 
-* Exponential integral $\mathrm{Ei}(x)$, for $|x| \leq 10^2$.
-* Exponential integral $\mathrm{E}_1(x)$, for $|x| \leq 10^2$.
-* Exponential integral $\mathrm{E}_1(z)$, for $|\Re(x)| \leq 10^2$ and $|\Im(x)| \leq 10^2$.
+* Exponential integral $\mathrm{Ei}(x)$, for $0 \lt x \leq 10^2$.
+* Exponential integral $\mathrm{E}_1(x)$, for $0 \lt x \leq 10^2$.
+* Exponential integral $\mathrm{E}_1(z)$, for $\left| \Re(z) \right| \leq 10^2$ and $\left| \Im(z) \right| \leq 10^2$, except for $-60 \lt \Re(z) \leq 0$ and $\left| \Im(z) \right| \lt 0.5$.
 
 This list will be updated as new functions are added and tested.
 
