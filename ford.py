@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# This script creates a FORD project.md from README.md
+
 import re
 
 def remove_first_two_rows(markdown_text):
@@ -23,6 +26,4 @@ def main(input_file, output_file):
         file.write(processed_content)
 
 if __name__ == "__main__":
-    # This script creates a FORD project.md from README.md
-
     main('README.md', 'project.md')
