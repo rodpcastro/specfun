@@ -19,6 +19,7 @@ program tester
   use, intrinsic :: iso_fortran_env, only : error_unit
   use testdrive, only : run_testsuite, new_testsuite, testsuite_type
   use test_exponential_integral, only : collect_exponential_integral_tests
+  use test_numerror, only: collect_numerror_tests
 
   implicit none
   integer :: stat, is
@@ -28,6 +29,7 @@ program tester
   stat = 0
 
   testsuites = [ &
+    new_testsuite("numerror_suite", collect_numerror_tests), &
     new_testsuite("exponential_integral_suite", collect_exponential_integral_tests) &
     ]
 
