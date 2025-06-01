@@ -18,7 +18,7 @@ The following list describes the implemented functions, each validated to at lea
 * Exponential integral $\mathrm{E}_1(z)$
     * $\lbrace z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2,\thinspace 10^{-16} \leq |\Im(z)| \leq 10^2,\thinspace z \notin (-61, 0] \times (-0.6, 0.6) \rbrace$
 
-This list will be updated as new functions are added and tested. Next in line are:
+The list above will be updated as new functions are added and tested. Next in line are:
 
 * Bessel functions of the first kind $J_0(x)$ and $J_1(x)$
 * Bessel functions of the second kind $Y_0(x)$ and $Y_1(x)$
