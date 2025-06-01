@@ -50,7 +50,7 @@ contains
       ref_ = 1.0_wp
     end if
 
-    ismall = abs(x) <= eps_wp * abs(ref_)
+    ismall = abs(x) < eps_wp * abs(ref_)
   end function ismall
 
   pure logical function isclose_real(a, b, rel_tol, abs_tol) 
