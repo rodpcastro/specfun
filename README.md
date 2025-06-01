@@ -12,13 +12,18 @@ WildF is a [Fortran][Fortran Website] library for evaluating mathematical [Speci
 The following list describes the implemented functions, each validated to at least 8 digits of precision within the specified domains. Outside these domains, the same precision is not guaranteed.
 
 * Exponential integral $\mathrm{Ei}(x)$
-    * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
+    * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2],\thinspace x \neq 0 \rbrace$
 * Exponential integral $\mathrm{E}_1(x)$
-    * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2] \rbrace$
+    * $\lbrace x \in \mathbb{R} \mid  x \in [10^{-16}, 10^2],\thinspace x \neq 0 \rbrace$
 * Exponential integral $\mathrm{E}_1(z)$
     * $\lbrace z \in \mathbb{C} \mid 10^{-16} \leq |\Re(z)| \leq 10^2,\thinspace 10^{-16} \leq |\Im(z)| \leq 10^2,\thinspace z \notin (-61, 0] \times (-0.6, 0.6) \rbrace$
 
-This list will be updated as new functions are added and tested.
+This list will be updated as new functions are added and tested. Next in line are:
+
+* Bessel functions of the first kind $J_0(x)$ and $J_1(x)$
+* Bessel functions of the second kind $Y_0(x)$ and $Y_1(x)$
+* Struve functions $\mathbf{H}_0(x)$ and $\mathbf{H}_1(x)$
+* Hypergeometric function ${}_2F_1(a, b; c; x)$
 
 ## Tests
 Tests are conducted by comparing the WildF results with those of [mpmath], an arbitrary-precision numerical library. These tests ensure at least 8 digits of precision within the specified domains.
