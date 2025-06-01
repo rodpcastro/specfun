@@ -59,7 +59,6 @@ contains
     else
       ei = pinf()
     end if
-
   end function ei
 
   pure real(wp) function e1x(x)
@@ -93,7 +92,6 @@ contains
     else
       e1x = 0.0_wp
     end if
-
   end function e1x
 
   pure complex(wp) function e1z(z)
@@ -135,7 +133,6 @@ contains
     if (z%re <= 0.0_wp .and. z%im == 0.0_wp) then
       e1z = cmplx(e1z%re, -pi)
     end if
-
   end function e1z
 
 end module wildf_exponential_integral

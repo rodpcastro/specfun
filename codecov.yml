@@ -2,4 +2,4 @@ ignore:
   - "test"
   - "build"
   - "example"
-  - "src/module_template.f90"
+  - "src/wildf_template.f90"
