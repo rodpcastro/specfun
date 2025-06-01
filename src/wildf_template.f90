@@ -1,3 +1,7 @@
+!  ┓ ┏•┓ ┓┏┓  Licensed under the MIT License
+!  ┃┃┃┓┃┏┫┣   Copyright (c) 2025 Rodrigo Castro
+!  ┗┻┛┗┗┗┻┻   https://github.com/rodpcastro/wildf 
+
 module wildf_template
 !* Module template. The space after * is important for Ford `docmark_alt`.
 !
