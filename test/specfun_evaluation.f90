@@ -1,13 +1,5 @@
 module specfun_evaluation
 ! Evaluation of special functions for test points.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
 
   use wildf_kinds, only: wp
   use readwrite, only: read_test_points, write_test_points

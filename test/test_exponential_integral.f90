@@ -1,13 +1,5 @@
 module test_exponential_integral
 ! Test of exponential integrals Ei and E1.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
   use wildf_kinds, only: wp

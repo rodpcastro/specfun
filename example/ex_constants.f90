@@ -1,13 +1,5 @@
 module example_constants
-! Displaying constants and infinity.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
+! The value of constants and ±infinity.
 
   use constants
 

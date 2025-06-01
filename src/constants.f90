@@ -1,18 +1,10 @@
 module constants
 !* Mathematical constants.
 !
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
-!
 ! References
 ! ----------
-! [1] N. J. A. Sloane. 1964. The Online Encyclopedia of Integer Sequences.
-!*    https://oeis.org/.
+! [1] N. J. A. Sloane. 1964. The Online Encyclopedia
+!*    of Integer Sequences. https://oeis.org/.
 
   use wildf_kinds, only: wp
   use, intrinsic :: ieee_arithmetic, only: ieee_value, &

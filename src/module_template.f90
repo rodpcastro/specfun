@@ -1,13 +1,5 @@
 module module_template
-!* Module template. The space after * is important for Ford docmark_alt.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! dd-mm-yyyy - Rodrigo Castro - Original code
+!* Module template. The space after * is important for Ford `docmark_alt`.
 !
 ! References
 ! ----------

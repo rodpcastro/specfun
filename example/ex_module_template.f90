@@ -1,13 +1,5 @@
 module example_module_template
 ! Checks if module template runs fine.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
 
   use wildf_kinds, only: i1
   use module_template, only: phi, fibonacci

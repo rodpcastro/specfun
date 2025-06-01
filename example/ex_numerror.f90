@@ -1,13 +1,5 @@
 module example_numerror
 ! Usage example of numerror functions.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 01-06-2025 - Rodrigo Castro - Original code
 
   use wildf_kinds, only: wp
   use numerror, only: ismall, isclose 

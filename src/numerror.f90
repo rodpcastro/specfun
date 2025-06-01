@@ -1,18 +1,10 @@
 module numerror
 !* Numerical error handling.
 !
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
-!
 ! References
 ! ----------
-! [1] Christopher Barker. 2015. PEP 485 – A Function for testing approximate equality.
-!*    https://peps.python.org/pep-0485/.
+! [1] Christopher Barker. 2015. PEP 485 – A Function for testing
+!*    approximate equality. https://peps.python.org/pep-0485/.
 
   use wildf_kinds, only: wp
 

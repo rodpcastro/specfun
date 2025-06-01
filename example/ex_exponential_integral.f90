@@ -1,13 +1,5 @@
 module example_exponential_integral
 ! Simple tests for exponential integrals Ei and E1.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
 
   use wildf_kinds, only: wp
   use constants, only: ninf, pinf

@@ -1,13 +1,5 @@
 module test_numerror
 ! Test of numerror functions.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 01-06-2025 - Rodrigo Castro - Original code
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
   use wildf_kinds, only: wp

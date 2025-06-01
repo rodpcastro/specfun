@@ -1,14 +1,6 @@
 program tester
 ! Test of WildF results against mpmath, assuring at least 8 digits of precision.
 !
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
-!
 ! References
 ! ----------
 ! [1] The Fortran Programming Language. 2024. test-drive: The simple 

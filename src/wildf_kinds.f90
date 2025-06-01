@@ -1,13 +1,5 @@
 module wildf_kinds
-!* Kinds for numeric types in wildf.
-!
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-!* 30-05-2025 - Rodrigo Castro - Original code
+!! WildF kinds for numeric types.
 
   use, intrinsic :: iso_fortran_env, only: int8, int16, int32, real32, real64
 

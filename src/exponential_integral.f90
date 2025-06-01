@@ -1,18 +1,10 @@
 module exponential_integral
 !* Exponential integrals Ei and E1.
 !
-! Author
-! ------
-! Rodrigo Castro (GitHub: rodpcastro)
-!
-! History
-! -------
-! 30-05-2025 - Rodrigo Castro - Original code
-!
 ! References
 ! ----------
-! [1] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions.
-!*    Wiley, New York, NY.
+! [1] Shanjie Zhang, Jianming Jin. 1996. Computation 
+!*    of Special Functions. Wiley, New York, NY.
 
   use wildf_kinds, only: i2, wp
   use constants, only: pi, gm, ninf, pinf
