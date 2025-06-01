@@ -10,6 +10,7 @@ module example_exponential_integral
 ! 30-05-2025 - Rodrigo Castro - Original code
 
   use wildf_kinds, only: wp
+  use constants, only: ninf, pinf
   use exponential_integral, only: ei, e1
 
   implicit none
@@ -34,6 +35,8 @@ contains
     print '(a, es22.15)', 'ei(-1.5) = ', ei(-1.5_wp)
     print '(a, es22.15)', 'ei(root) = ', ei(ei_root)
     print '(a, sp, g0)', 'ei(0.0) = ', ei(0.0_wp)
+    print '(a, sp, g0)', 'ei(+Inf) = ', ei(pinf())
+    print '(a, sp, g0)', 'ei(-Inf) = ', ei(ninf())
   end subroutine example_ei
 
   subroutine example_e1x()
@@ -49,10 +52,19 @@ contains
     print '(a, es22.15)', 'e1x_t2 = ', e1x_t2
     print '(a, es22.15)', '-e1x(1.5) = ', -e1(1.5_wp)
     print '(a, sp, g0)' , 'e1x(0.0) = ', e1(0.0_wp)
+    print '(a, sp, g0)', 'e1x(+Inf) = ', e1(pinf())
   end subroutine example_e1x
 
   subroutine example_e1z()
     real(wp) :: e1z_t1, e1z_t2, e1z_t3
+    complex(wp) :: zre_ninf, zre_pinf, zim_ninf, zim_pinf, z_ppinf, z_pninf
+
+    zre_ninf = cmplx(ninf(), 0.0_wp)
+    zre_pinf = cmplx(pinf(), 0.0_wp)
+    zim_ninf = cmplx(0.0_wp, ninf())
+    zim_pinf = cmplx(0.0_wp, pinf())
+    z_ppinf = cmplx(pinf(), pinf())
+    z_pninf = cmplx(pinf(), ninf())
 
     e1z_t1 = abs((-0.014529959529202443_wp, -0.015866824826503003_wp) - e1((2.5_wp, 1.8_wp))) / &
              abs((-0.014529959529202443_wp, -0.015866824826503003_wp))
@@ -67,8 +79,14 @@ contains
     print '(a, es22.15)', 'e1z_t1 = ', e1z_t1
     print '(a, es22.15)', 'e1z_t2 = ', e1z_t2
     print '(a, es22.15)', 'e1z_t3 = ', e1z_t3
-    print '(a, 2(es22.15, 1x))', 'e1z(-1.0) = ', e1((-1.0_wp, 0.0_wp))
-    print '(a, sp, g0, es22.15)', 'e1z(0.0) = ', e1((0.0_wp, 0.0_wp))
+    print '(a, 2(es22.15, 1x))', 'e1z((-1.0, 0.0)) = ', e1((-1.0_wp, 0.0_wp))
+    print '(a, sp, g0, es22.15)', 'e1z((0.0, 0.0)) = ', e1((0.0_wp, 0.0_wp))
+    print '(a, sp, g0, es22.15)', 'e1z((-Inf, 0.0) = ', e1(zre_ninf)
+    print '(a, sp, g0, es22.15)', 'e1z((+Inf, 0.0)) = ', e1(zre_pinf)
+    print '(a, sp, g0, es22.15)', 'e1z((0.0, -Inf)) = ', e1(zim_ninf)
+    print '(a, sp, g0, es22.15)', 'e1z((0.0, +Inf)) = ', e1(zim_pinf)
+    print '(a, sp, g0, es22.15)', 'e1z((+Inf, +Inf)) = ', e1(z_ppinf)
+    print '(a, sp, g0, es22.15)', 'e1z((+Inf, -Inf)) = ', e1(z_pninf)
   end subroutine example_e1z
 
 end module example_exponential_integral
