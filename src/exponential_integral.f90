@@ -14,7 +14,6 @@ module exponential_integral
 ! [1] Shanjie Zhang, Jianming Jin. 1996. Computation of Special Functions.
 !*    Wiley, New York, NY.
 
-  use, intrinsic :: iso_fortran_env, only: stderr => error_unit
   use wildf_kinds, only: i2, wp
   use constants, only: pi, gm, ninf, pinf
   use numerror, only: ismall
