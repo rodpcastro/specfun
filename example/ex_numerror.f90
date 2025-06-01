@@ -2,7 +2,7 @@ module example_numerror
 ! Usage example of numerror functions.
 
   use wildf_kinds, only: wp
-  use numerror, only: ismall, isclose 
+  use wildf_numerror, only: ismall, isclose 
 
   implicit none
   private

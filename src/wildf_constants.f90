@@ -1,4 +1,4 @@
-module constants
+module wildf_constants
 !* Mathematical constants.
 !
 ! References
@@ -30,4 +30,4 @@ contains
     pinf = ieee_value(1.0_wp, ieee_positive_inf)
   end function pinf
 
-end module constants
+end module wildf_constants

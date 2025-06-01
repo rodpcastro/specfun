@@ -1,4 +1,4 @@
-module exponential_integral
+module wildf_exponential_integral
 !* Exponential integrals Ei and E1.
 !
 ! References
@@ -7,8 +7,8 @@ module exponential_integral
 !*    of Special Functions. Wiley, New York, NY.
 
   use wildf_kinds, only: i2, wp
-  use constants, only: pi, gm, ninf, pinf
-  use numerror, only: ismall
+  use wildf_constants, only: pi, gm, ninf, pinf
+  use wildf_numerror, only: ismall
 
   implicit none
   private
@@ -134,4 +134,4 @@ contains
 
   end function e1z
 
-end module exponential_integral
+end module wildf_exponential_integral

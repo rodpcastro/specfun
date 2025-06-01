@@ -2,8 +2,8 @@ module example_exponential_integral
 ! Simple tests for exponential integrals Ei and E1.
 
   use wildf_kinds, only: wp
-  use constants, only: ninf, pinf
-  use exponential_integral, only: ei, e1
+  use wildf_constants, only: ninf, pinf
+  use wildf_exponential_integral, only: ei, e1
 
   implicit none
   private

@@ -1,4 +1,4 @@
-module module_template
+module wildf_template
 !* Module template. The space after * is important for Ford `docmark_alt`.
 !
 ! References
@@ -34,4 +34,4 @@ contains
     end do
   end function fibonacci
 
-end module module_template
+end module wildf_template

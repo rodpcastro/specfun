@@ -2,8 +2,8 @@ module specfun_evaluation
 ! Evaluation of special functions for test points.
 
   use wildf_kinds, only: wp
+  use wildf_numerror, only: isclose
   use readwrite, only: read_test_points, write_test_points
-  use numerror, only: isclose
 
   implicit none
   private

@@ -1,4 +1,4 @@
-module numerror
+module wildf_numerror
 !* Numerical error handling.
 !
 ! References
@@ -106,4 +106,4 @@ contains
                       isclose_real(aim, bim, rel_tol_, abs_tol_)
   end function isclose_complex
 
-end module numerror
+end module wildf_numerror

@@ -3,7 +3,7 @@ module test_numerror
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
   use wildf_kinds, only: wp
-  use numerror, only: ismall, isclose 
+  use wildf_numerror, only: ismall, isclose 
 
   implicit none
   private

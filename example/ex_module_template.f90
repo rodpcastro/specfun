@@ -2,7 +2,7 @@ module example_module_template
 ! Checks if module template runs fine.
 
   use wildf_kinds, only: i1
-  use module_template, only: phi, fibonacci
+  use wildf_template, only: phi, fibonacci
 
   implicit none
   private

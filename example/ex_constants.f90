@@ -1,7 +1,7 @@
 module example_constants
 ! The value of constants and ±infinity.
 
-  use constants
+  use wildf_constants
 
   implicit none
   private

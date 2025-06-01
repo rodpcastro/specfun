@@ -3,9 +3,9 @@ module test_exponential_integral
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
   use wildf_kinds, only: wp
-  use constants, only: pi, ninf, pinf
+  use wildf_constants, only: pi, ninf, pinf
+  use wildf_exponential_integral, only: ei, e1
   use specfun_evaluation, only: eval_write
-  use exponential_integral, only: ei, e1
 
   implicit none
   private
