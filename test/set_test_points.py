@@ -50,11 +50,11 @@ def set_test_points_exponential_integral_e1z():
     z1_mask = ~np.logical_and(z1.real == 0, z1.imag == 0)
     z1 = z1[z1_mask]
 
-    # {z ∈ ℂ | -10² ≤ Re(z) < 0, 0.7 ≤ |Im(z)| ≤ 10²}
+    # {z ∈ ℂ | Re(z) < 0, |Im(z)| ≥ 0.7}
     x2c = np.logspace(-100, -1, 25, dtype=np.float64)
-    x2f = np.linspace(1.0, 100, 25, dtype=np.float64)
+    x2f = np.linspace(1.0, 709, 25, dtype=np.float64)
     x2 = -np.concatenate((x2c, x2f))[::-1]
-    y2p = np.linspace(0.7, 100, 50, dtype=np.float64)
+    y2p = np.logspace(-0.1549019599857432, 6, 50)
     y2n = -y2p[::-1].copy()
     y2 = np.concatenate((y2n, y2p), dtype=np.float64)
     U2, V2 = np.meshgrid(x2, y2)

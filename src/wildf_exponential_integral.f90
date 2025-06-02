@@ -28,7 +28,7 @@ contains
   pure real(wp) function ei(x)
     !! Exponential integral Ei(x).
     !
-    ! {x ∈ ℝ | x ∈ [1e-16, 1e2]}
+    ! {x ∈ ℝ | x > 0}
 
     real(wp), intent(in) :: x
 
@@ -64,9 +64,9 @@ contains
   pure real(wp) function e1x(x)
     !! Exponential integral E1(x).
     !
-    ! {x ∈ ℝ | x ∈ [1e-16, 1e2]}
+    ! {x ∈ ℝ | x > 0}
 
-    real(wp), intent(in) :: x  !! x ≥ 0
+    real(wp), intent(in) :: x  !! x > 0
 
     real(wp) :: r
     integer(i2) :: n, m
@@ -97,7 +97,7 @@ contains
   pure complex(wp) function e1z(z)
     !! Exponential integral E1(z).
     !
-    ! {z ∈ ℂ | 1e-16 ≤ |Re(z)| ≤ 1e2, 1e-16 ≤ |Im(z)| ≤ 1e2, z ∉ (-61, 0]×(-0.6, 0.6)}
+    ! z ∈ ℂ \ ({z ∈ ℂ | Re(z) < 0, |Im(z)| < 0.7} ∪ {0})
 
     complex(wp), intent(in) :: z
 
