@@ -3,12 +3,22 @@
 !  ┗┻┛┗┗┗┻┻   https://github.com/rodpcastro/wildf 
 
 module wildf_numerror
-!* Numerical error handling.
+!* # Numerical error
+! Numerical error handling.
 !
-! References
-! ----------
-! [1] Christopher Barker. 2015. PEP 485 – A Function for testing
-!*    approximate equality. https://peps.python.org/pep-0485/.
+! Constants:
+!
+! - `eps_wp`: Working precision machine epsilon
+! - `tol_wp`: Tolerance for approximations
+!
+! Procedures:
+!
+! - `ismall`: Evaluates the smallness of a variable compared to a reference value.
+! - `isclose`: Evaluates the closeness between two real or complex variables.
+!
+! ## References
+! 1. Christopher Barker. 2015. PEP 485 – A Function for testing
+!*   approximate equality. <https://peps.python.org/pep-0485/>
 
   use wildf_kinds, only: wp
 
@@ -16,27 +26,28 @@ module wildf_numerror
   private
   public :: eps_wp, tol_wp, isclose, ismall
 
-  real(wp), parameter :: eps_wp = epsilon(1.0_wp)  !! working precision machine epsilon
-  real(wp), parameter :: tol_wp = 1.0e-8_wp  !! tolerance for approximations
+  real(wp), parameter :: eps_wp = epsilon(1.0_wp)  !! Working precision machine epsilon
+  real(wp), parameter :: tol_wp = 1.0e-8_wp  !! Tolerance for approximations
 
+  ! For reference:
   ! eps_sp = 1.19209290E-07
   ! eps_dp = 2.2204460492503131E-016
 
   interface isclose
-    !! Evaluates the closeness between two real or complex numbers.
+    !! Evaluates the closeness between two real or complex variables.
     module procedure isclose_real, isclose_complex
   end interface isclose
 
 contains
 
   pure logical function ismall(x, ref)
-    !! Evaluates the smallness of x compared to a reference value.
+    !* Evaluates the smallness of a variable compared to a reference value.
     !
-    ! .true. if x is small compared to ref according to eps_wp, and
-    ! .false. otherwise.
+    ! `.true.` if `x` is small compared to `ref` according to `eps_wp`, and
+    !* `.false.` otherwise.
 
     real(wp), intent(in) :: x
-    real(wp), intent(in), optional :: ref  !! reference value, default=1.0
+    real(wp), intent(in), optional :: ref  !! Reference value, default=1.0
 
     real(wp) :: ref_
 
@@ -50,14 +61,15 @@ contains
   end function ismall
 
   pure logical function isclose_real(a, b, rel_tol, abs_tol) 
-    !! Evaluates the closeness between two real numbers.
+    !* Evaluates the closeness between two real variables.
     ! 
-    ! .true. if a and b are close to each other according to a tolerance, and
-    ! .false. otherwise.
+    ! `.true.` if `a` and `b` are close to each other according to a tolerance, and
+    ! `.false.` otherwise. Tolerance is defined by `rel_tol` and `abs_tol`, where
+    !* `abs_tol` is used for comparing values close no zero.
 
     real(wp), intent(in) :: a, b
-    real(wp), intent(in), optional :: rel_tol  !! relative tolerance, default=tol_wp
-    real(wp), intent(in), optional :: abs_tol  !! absolute tolerace, default=tol_wp
+    real(wp), intent(in), optional :: rel_tol  !! Relative tolerance, default=tol_wp
+    real(wp), intent(in), optional :: abs_tol  !! Absolute tolerace, default=tol_wp
 
     real(wp) :: rel_tol_, abs_tol_
 
@@ -77,14 +89,15 @@ contains
   end function isclose_real
 
   pure logical function isclose_complex(a, b, rel_tol, abs_tol) 
-    !! Evaluates the closeness between two complex numbers.
+    !* Evaluates the closeness between two complex variables.
     ! 
-    ! .true. if a and b are close to each other according to a tolerance, and
-    ! .false. otherwise.
+    ! `.true.` if `a` and `b` are close to each other according to a tolerance, and
+    ! `.false.` otherwise. Tolerance is defined by `rel_tol` and `abs_tol`, where
+    !* `abs_tol` is used for comparing values close no zero.
 
     complex(wp), intent(in) :: a, b
-    real(wp), intent(in), optional :: rel_tol  !! relative tolerance, default=tol_wp
-    real(wp), intent(in), optional :: abs_tol  !! absolute tolerance, default=tol_wp
+    real(wp), intent(in), optional :: rel_tol  !! Relative tolerance, default=tol_wp
+    real(wp), intent(in), optional :: abs_tol  !! Absolute tolerance, default=tol_wp
 
     real(wp) :: are, aim, bre, bim
     real(wp) :: rel_tol_, abs_tol_
