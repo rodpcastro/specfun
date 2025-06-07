@@ -3,6 +3,7 @@ module test_exponential_integral
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
   use wildf_kinds, only: wp
+  use wildf_numerror, only: isclose
   use wildf_constants, only: pi, ninf, pinf
   use wildf_exponential_integral, only: ei, e1
   use specfun_evaluation, only: eval_write
@@ -118,6 +119,13 @@ contains
     e1zw = e1(z)
     e1zr = cmplx(pinf(), -pi, kind=wp)
     call check(error, e1zw, e1zr)
+    if (allocated(error)) return
+
+    z = (-1.0_wp, 0.0_wp)
+    e1zw = e1(z)
+    e1zr = cmplx(-1.895117816355936763_wp, -pi, kind=wp)
+    ! call check(error, e1zw, e1zr)
+    call check(error, isclose(e1zw, e1zr))
     if (allocated(error)) return
 
     z = cmplx(ninf(), 0.0_wp, kind=wp)
