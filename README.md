@@ -1,5 +1,4 @@
 # WildF
-
 [![Fortran][Fortran Badge]][Fortran Website]
 [![Docs][Docs Badge]][Docs Website]
 [![Test][Test Badge]][Test Workflow]
@@ -12,7 +11,7 @@ WildF is a [Fortran][Fortran Website] library for evaluating mathematical [Speci
 The following list describes the implemented functions, each validated to at least 8 digits of precision within the specified domains. Outside these domains, the same precision is not guaranteed.
 
 * Exponential integral $\mathrm{Ei}(x)$
-    * $\lbrace x \in \mathbb{R} \mid x \gt 0 \rbrace$
+    * $\lbrace x \in \mathbb{R} \mid x \neq 0 \rbrace$
 * Exponential integral $\mathrm{E}_1(x)$
     * $\lbrace x \in \mathbb{R} \mid x \gt 0 \rbrace$
 * Exponential integral $\mathrm{E}_1(z)$

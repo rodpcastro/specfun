@@ -3,12 +3,20 @@
 !  ┗┻┛┗┗┗┻┻   https://github.com/rodpcastro/wildf 
 
 module wildf_template
-!* Module template. The space after * is important for Ford `docmark_alt`.
+!* # Module template
+! Reference for writing WildF modules.
 !
-! References
-! ----------
-! [1] Author. Year. Title.
-!*    URL
+! Constants:
+!
+! - `phi`: Golden ratio \(\phi\)
+!
+! Procedures:
+!
+! - `fibonacci`: First n terms of the Fibonacci sequence
+!
+! ## References
+! 1. Author. Year. Title.
+!*   <URL>
 
   use wildf_kinds, only: i1, wp
 
@@ -16,14 +24,15 @@ module wildf_template
   private
   public :: phi, fibonacci
 
-  real(wp), parameter :: phi = 1.61803398874989484820458683436563811e+0_wp  !! Golden ratio φ
+  !> Golden ratio \(\phi\)
+  real(wp), parameter :: phi = 1.61803398874989484820458683436563811e+0_wp
 
 contains
 
   pure function fibonacci(n) result(fib)
-    !! n first terms of the Fibonacci sequence.
+    !! First `n` terms of the Fibonacci sequence.
 
-    integer(i1), intent(in) :: n  !! number of terms
+    integer(i1), intent(in) :: n
     integer(i1) :: fib(n)
     integer(i1) :: i
 

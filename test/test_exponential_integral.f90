@@ -112,41 +112,41 @@ contains
 
     z = (0.0_wp, 0.0_wp)
     e1zw = e1(z)
-    e1zr = cmplx(pinf(), -pi)
+    e1zr = cmplx(pinf(), -pi, kind=wp)
     call check(error, e1zw, e1zr)
     if (allocated(error)) return
 
-    z = cmplx(ninf(), 0.0_wp)
+    z = cmplx(ninf(), 0.0_wp, kind=wp)
     e1zw = e1(z)
-    e1zr = cmplx(ninf(), -pi)
+    e1zr = cmplx(ninf(), -pi, kind=wp)
     call check(error, e1zw, e1zr)
     if (allocated(error)) return
 
-    z = cmplx(pinf(), 0.0_wp)
-    e1zw = e1(z)
-    e1zr = (0.0_wp, 0.0_wp)
-    call check(error, e1zw, e1zr)
-    if (allocated(error)) return
-
-    z = cmplx(0.0_wp, ninf())
+    z = cmplx(pinf(), 0.0_wp, kind=wp)
     e1zw = e1(z)
     e1zr = (0.0_wp, 0.0_wp)
     call check(error, e1zw, e1zr)
     if (allocated(error)) return
 
-    z = cmplx(0.0_wp, pinf())
+    z = cmplx(0.0_wp, ninf(), kind=wp)
     e1zw = e1(z)
     e1zr = (0.0_wp, 0.0_wp)
     call check(error, e1zw, e1zr)
     if (allocated(error)) return
 
-    z = cmplx(pinf(), pinf())
+    z = cmplx(0.0_wp, pinf(), kind=wp)
     e1zw = e1(z)
     e1zr = (0.0_wp, 0.0_wp)
     call check(error, e1zw, e1zr)
     if (allocated(error)) return
 
-    z = cmplx(pinf(), ninf())
+    z = cmplx(pinf(), pinf(), kind=wp)
+    e1zw = e1(z)
+    e1zr = (0.0_wp, 0.0_wp)
+    call check(error, e1zw, e1zr)
+    if (allocated(error)) return
+
+    z = cmplx(pinf(), ninf(), kind=wp)
     e1zw = e1(z)
     e1zr = (0.0_wp, 0.0_wp)
     call check(error, e1zw, e1zr)

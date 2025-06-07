@@ -3,12 +3,17 @@
 !  ┗┻┛┗┗┗┻┻   https://github.com/rodpcastro/wildf 
 
 module wildf_exponential_integral
-!* Exponential integrals Ei and E1.
+!* # Exponential integral
+! Exponential integrals.
 !
-! References
-! ----------
-! [1] Shanjie Zhang, Jianming Jin. 1996. Computation 
-!*    of Special Functions. Wiley, New York, NY.
+! Procedures:
+!
+! - `ei`: Exponential integral \(\mathrm{Ei}(x)\)
+! - `e1`: Exponential integral \(\mathrm{E}_1(x)\) or \(\mathrm{E}_1(z)\)
+!
+! ## References
+! 1. Shanjie Zhang, Jianming Jin. 1996. Computation  of Special Functions.
+!*   Wiley, New York, NY. <https://search.worldcat.org/title/33971114>
 
   use wildf_kinds, only: i2, wp
   use wildf_constants, only: pi, gm, ninf, pinf
@@ -19,16 +24,16 @@ module wildf_exponential_integral
   public :: ei, e1
   
   interface e1
-    !! Exponential integral E1.
+    !! Exponential integral \(\mathrm{E}_1(x)\) or \(\mathrm{E}_1(z)\).
     module procedure e1x, e1z
   end interface e1
 
 contains
 
   pure real(wp) function ei(x)
-    !! Exponential integral Ei(x).
+    !! Exponential integral \(\mathrm{Ei}(x)\).
     !
-    ! {x ∈ ℝ | x > 0}
+    !! \(\lbrace x \in \mathbb{R} \mid x \neq 0 \rbrace\)
 
     real(wp), intent(in) :: x
 
@@ -48,7 +53,7 @@ contains
         if (ismall(r, ei)) exit
       end do
       ei = ei + gm + log(x)
-    else if (x <= 710.0_wp) then
+    else if (x <= 709.0_wp) then
       ei = 1.0_wp
       r = 1.0_wp
       do n = 1, 20
@@ -62,17 +67,22 @@ contains
   end function ei
 
   pure real(wp) function e1x(x)
-    !! Exponential integral E1(x).
+    !! Exponential integral \(\mathrm{E}_1(x)\).
     !
-    ! {x ∈ ℝ | x > 0}
+    !! \(\lbrace x \in \mathbb{R} \mid x \gt 0 \rbrace\)
 
-    real(wp), intent(in) :: x  !! x > 0
+    real(wp), intent(in) :: x
 
+    complex(wp) :: z, eoz
     real(wp) :: r
     integer(i2) :: n, m
 
     if (x == 0.0_wp) then
       e1x = pinf()
+    else if (x < 0.0_wp) then
+      z = cmplx(x, 0.0_wp, kind=wp)
+      eoz = e1z(z)
+      e1x = eoz%re
     else if (x <= 1.0_wp) then
       e1x = x
       r = x
@@ -82,7 +92,7 @@ contains
         if (ismall(r, e1x)) exit
       end do
       e1x = e1x - gm - log(x)
-    else if (x <= 739.0_wp) then
+    else if (x <= 738.0_wp) then
       m = int(20.0_wp + 80.0_wp/x, i2)
       r = 0.0_wp
       do n = m, 1, -1
@@ -95,9 +105,10 @@ contains
   end function e1x
 
   pure complex(wp) function e1z(z)
-    !! Exponential integral E1(z).
+    !! Exponential integral \(\mathrm{E}_1(z)\).
     !
-    ! z ∈ ℂ \ ({z ∈ ℂ | Re(z) < 0, |Im(z)| < 0.7} ∪ {0})
+    !! \(z \in \mathbb{C} \setminus \left( \lbrace z \in \mathbb{C} \mid \Re(z) \lt 0,
+    !! \thinspace |\Im(z)| \lt 0.7 \rbrace \cup \lbrace 0 \rbrace \right)\)
 
     complex(wp), intent(in) :: z
 
@@ -108,7 +119,8 @@ contains
     zabs = abs(z)
 
     if (zabs == 0.0_wp) then
-      e1z = cmplx(pinf(), -pi)
+      e1z = cmplx(pinf(), -pi, kind=wp)
+      return
     else if (zabs <= 10.0_wp .or. z%re < 0.0_wp .and. zabs < 20.0_wp) then
       e1z = z
       r = z
@@ -118,20 +130,22 @@ contains
         if (ismall(abs(r), abs(e1z))) exit
       end do
       e1z = e1z - gm - log(z)
-    else if (z%re <= -94.0_wp .and. z%im == 0.0_wp) then
-      e1z = cmplx(ninf(), 0.0_wp)
-    else if (z%re < 0.0_wp .or. z%re >= 0.0_wp .and. zabs <= 1.0e20_wp) then
+    else if (z%re > 738.0_wp .or. (z%re >= 0 .and. abs(z%im) > huge(0.0_wp))) then
+      e1z = (0.0_wp, 0.0_wp)
+      return
+    else if (z%re < -709.0_wp .and. z%im == 0.0_wp) then
+      e1z = cmplx(ninf(), -pi, kind=wp) 
+      return
+    else
       r = (0.0_wp, 0.0_wp)
       do n = 120, 1, -1
         r = n / (1.0_wp + n / (z + r))
       end do
       e1z = exp(-z) / (z + r)
-    else
-      e1z = (0.0_wp, 0.0_wp)
     end if
 
-    if (z%re <= 0.0_wp .and. z%im == 0.0_wp) then
-      e1z = cmplx(e1z%re, -pi)
+    if (z%re < 0.0_wp .and. z%im == 0.0_wp) then
+      e1z = cmplx(e1z%re, -pi, kind=wp)
     end if
   end function e1z
 
