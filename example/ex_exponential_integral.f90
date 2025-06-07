@@ -45,6 +45,7 @@ contains
     print '(a, es22.15)', 'e1x_t1 = ', e1x_t1
     print '(a, es22.15)', 'e1x_t2 = ', e1x_t2
     print '(a, es22.15)', '-e1x(1.5) = ', -e1(1.5_wp)
+    print '(a, es22.15)', 'e1x(-1.0) = ', e1(-1.0_wp)
     print '(a, sp, g0)' , 'e1x(0.0) = ', e1(0.0_wp)
     print '(a, sp, g0)', 'e1x(+Inf) = ', e1(pinf())
     print '(a, es22.15)', 'e1x(738.0) = ', e1(738.0_wp)

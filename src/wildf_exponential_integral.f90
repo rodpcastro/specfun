@@ -72,13 +72,18 @@ contains
     !
     !! \(\lbrace x \in \mathbb{R} \mid x \neq 0 \rbrace\)
 
-    real(wp), intent(in) :: x  !! x > 0
+    real(wp), intent(in) :: x
 
+    complex(wp) :: z, eoz
     real(wp) :: r
     integer(i2) :: n, m
 
     if (x == 0.0_wp) then
       e1x = pinf()
+    else if (x < 0.0_wp) then
+      z = cmplx(x, 0.0_wp, kind=wp)
+      eoz = e1z(z)
+      e1x = eoz%re
     else if (x <= 1.0_wp) then
       e1x = x
       r = x
