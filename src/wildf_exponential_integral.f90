@@ -69,7 +69,7 @@ contains
   pure real(wp) function e1x(x)
     !! Exponential integral \(\mathrm{E}_1(x)\).
     !
-    !! \(\lbrace x \in \mathbb{R} \mid x \neq 0 \rbrace\)
+    !! \(\lbrace x \in \mathbb{R} \mid x \gt 0 \rbrace\)
 
     real(wp), intent(in) :: x
 
@@ -108,7 +108,7 @@ contains
     !! Exponential integral \(\mathrm{E}_1(z)\).
     !
     !! \(z \in \mathbb{C} \setminus \left( \lbrace z \in \mathbb{C} \mid \Re(z) \lt 0,
-    !! \thinspace 0 \lt |\Im(z)| \lt 10^{-6} \rbrace \cup \lbrace 0 \rbrace \right)\)
+    !! \thinspace |\Im(z)| \lt 0.7 \rbrace \cup \lbrace 0 \rbrace \right)\)
 
     complex(wp), intent(in) :: z
 
