@@ -3,12 +3,18 @@
 !  ┗┻┛┗┗┗┻┻   https://github.com/rodpcastro/wildf 
 
 module wildf_exponential_integral
-!* Exponential integrals Ei and E1.
+!* # Exponential integral
+! Exponential integrals.
 !
-! References
-! ----------
-! [1] Shanjie Zhang, Jianming Jin. 1996. Computation 
-!*    of Special Functions. Wiley, New York, NY.
+! Procedures:
+!
+! - `ei`: Exponential integral \(\mathrm{Ei}(x)\)
+! - `e1`: Exponential integral \(\mathrm{E}_1(x)\) or \(\mathrm{E}_1(z)\)
+!
+! ## References
+! 1. Shanjie Zhang, Jianming Jin. 1996. Computation 
+!    of Special Functions. Wiley, New York, NY.
+!*   <https://search.worldcat.org/title/33971114>
 
   use wildf_kinds, only: i2, wp
   use wildf_constants, only: pi, gm, ninf, pinf
@@ -19,16 +25,16 @@ module wildf_exponential_integral
   public :: ei, e1
   
   interface e1
-    !! Exponential integral E1.
+    !! Exponential integral \(\mathrm{E}_1(x)\) or \(\mathrm{E}_1(z)\).
     module procedure e1x, e1z
   end interface e1
 
 contains
 
   pure real(wp) function ei(x)
-    !! Exponential integral Ei(x).
+    !! Exponential integral \(\mathrm{Ei}(x)\).
     !
-    ! {x ∈ ℝ | x > 0}
+    !! \(\lbrace x \in \mathbb{R} \mid x \neq 0 \rbrace\)
 
     real(wp), intent(in) :: x
 
@@ -62,9 +68,9 @@ contains
   end function ei
 
   pure real(wp) function e1x(x)
-    !! Exponential integral E1(x).
+    !! Exponential integral \(\mathrm{E}_1(x)\).
     !
-    ! {x ∈ ℝ | x > 0}
+    !! \(\lbrace x \in \mathbb{R} \mid x \neq 0 \rbrace\)
 
     real(wp), intent(in) :: x  !! x > 0
 
@@ -95,9 +101,10 @@ contains
   end function e1x
 
   pure complex(wp) function e1z(z)
-    !! Exponential integral E1(z).
+    !! Exponential integral \(\mathrm{E}_1(z)\).
     !
-    ! z ∈ ℂ \ ({z ∈ ℂ | Re(z) < 0, |Im(z)| < 0.7} ∪ {0})
+    !! \(z \in \mathbb{C} \setminus \left( \lbrace z \in \mathbb{C} \mid \Re(z) \lt 0,
+    !! \thinspace 0 \lt |\Im(z)| \lt 10^{-6} \rbrace \cup \lbrace 0 \rbrace \right)\)
 
     complex(wp), intent(in) :: z
 
