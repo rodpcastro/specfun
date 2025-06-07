@@ -82,6 +82,10 @@ contains
     call check(error, e1xw, pinf())
     if (allocated(error)) return
 
+    e1xw = e1(ninf())
+    call check(error, e1xw, ninf())
+    if (allocated(error)) return
+
     e1xw = e1(pinf())
     call check(error, e1xw, 0.0_wp)
     if (allocated(error)) return
