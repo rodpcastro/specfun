@@ -12,9 +12,8 @@ module wildf_exponential_integral
 ! - `e1`: Exponential integral \(\mathrm{E}_1(x)\) or \(\mathrm{E}_1(z)\)
 !
 ! ## References
-! 1. Shanjie Zhang, Jianming Jin. 1996. Computation 
-!    of Special Functions. Wiley, New York, NY.
-!*   <https://search.worldcat.org/title/33971114>
+! 1. Shanjie Zhang, Jianming Jin. 1996. Computation  of Special Functions.
+!*   Wiley, New York, NY. <https://search.worldcat.org/title/33971114>
 
   use wildf_kinds, only: i2, wp
   use wildf_constants, only: pi, gm, ninf, pinf
