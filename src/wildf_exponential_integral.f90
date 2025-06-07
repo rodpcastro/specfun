@@ -48,7 +48,7 @@ contains
         if (ismall(r, ei)) exit
       end do
       ei = ei + gm + log(x)
-    else if (x <= 710.0_wp) then
+    else if (x <= 709.0_wp) then
       ei = 1.0_wp
       r = 1.0_wp
       do n = 1, 20
@@ -82,7 +82,7 @@ contains
         if (ismall(r, e1x)) exit
       end do
       e1x = e1x - gm - log(x)
-    else if (x <= 739.0_wp) then
+    else if (x <= 738.0_wp) then
       m = int(20.0_wp + 80.0_wp/x, i2)
       r = 0.0_wp
       do n = m, 1, -1
@@ -108,7 +108,8 @@ contains
     zabs = abs(z)
 
     if (zabs == 0.0_wp) then
-      e1z = cmplx(pinf(), -pi)
+      e1z = cmplx(pinf(), -pi, kind=wp)
+      return
     else if (zabs <= 10.0_wp .or. z%re < 0.0_wp .and. zabs < 20.0_wp) then
       e1z = z
       r = z
@@ -118,20 +119,22 @@ contains
         if (ismall(abs(r), abs(e1z))) exit
       end do
       e1z = e1z - gm - log(z)
-    else if (z%re <= -94.0_wp .and. z%im == 0.0_wp) then
-      e1z = cmplx(ninf(), 0.0_wp)
-    else if (z%re < 0.0_wp .or. z%re >= 0.0_wp .and. zabs <= 1.0e20_wp) then
+    else if (z%re > 738.0_wp .or. (z%re >= 0 .and. abs(z%im) > huge(0.0_wp))) then
+      e1z = (0.0_wp, 0.0_wp)
+      return
+    else if (z%re < -709.0_wp .and. z%im == 0.0_wp) then
+      e1z = cmplx(ninf(), -pi, kind=wp) 
+      return
+    else
       r = (0.0_wp, 0.0_wp)
       do n = 120, 1, -1
         r = n / (1.0_wp + n / (z + r))
       end do
       e1z = exp(-z) / (z + r)
-    else
-      e1z = (0.0_wp, 0.0_wp)
     end if
 
-    if (z%re <= 0.0_wp .and. z%im == 0.0_wp) then
-      e1z = cmplx(e1z%re, -pi)
+    if (z%re < 0.0_wp .and. z%im == 0.0_wp) then
+      e1z = cmplx(e1z%re, -pi, kind=wp)
     end if
   end function e1z
 
