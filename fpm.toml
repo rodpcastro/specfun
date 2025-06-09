@@ -24,6 +24,7 @@ summary = "WildF is a Fortran library for evaluating mathematical Special Functi
 license = "mit"
 project_github = "https://github.com/rodpcastro/wildf/"
 project_download = "https://github.com/rodpcastro/wildf/archive/refs/heads/main.zip"
+favicon = "media/favicon.png"
 
 src_dir = "./src"
 output_dir = "./docs"

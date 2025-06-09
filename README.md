@@ -1,14 +1,14 @@
-<p align="center">
+<h1 align="center">
     <img src="https://raw.githubusercontent.com/rodpcastro/wildf/refs/heads/main/media/wildf_logo.svg", alt="WildF Logo">
-</p><br>
+</h1>
 
-# WildF
 [![Fortran][Fortran Badge]][Fortran Website]
 [![Docs][Docs Badge]][Docs Website]
 [![Test][Test Badge]][Test Workflow]
 [![Coverage][Coverage Badge]][Coverage Website]
 [![License][License Badge]][License File]
 
+# WildF
 WildF is a [Fortran][Fortran Website] library for evaluating mathematical [Special Functions]. Just like wild creatures, Special Functions are unusual, but interesting mathematical objects that arise in many areas of applied mathematics. This library aims to serve as a support for any project that needs the computation of these rare species.
 
 ## Functions
