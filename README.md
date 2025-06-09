@@ -1,6 +1,6 @@
 <p align="center">
-    <img src="https://github.com/rodpcastro/wildf/blob/main/media/wildf_logo.svg", alt="WildF Logo">
-</p><br>
+    <img src="https://raw.githubusercontent.com/rodpcastro/wildf/refs/heads/main/media/wildf_logo.svg", alt="WildF Logo">
+</p>
 
 [![Fortran][Fortran Badge]][Fortran Website]
 [![Docs][Docs Badge]][Docs Website]
