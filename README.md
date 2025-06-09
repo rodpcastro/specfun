@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rodpcastro/wildf/refs/heads/main/media/wildf_logo.svg", alt="WildF Logo">
+</p><br>
+
 # WildF
 [![Fortran][Fortran Badge]][Fortran Website]
 [![Docs][Docs Badge]][Docs Website]
